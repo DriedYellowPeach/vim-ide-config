@@ -14,6 +14,10 @@ end
 lvim.builtin.treesitter.ensure_installed = {
   "lua",
   "markdown",
+  "rust",
+  "toml",
+  "c",
+  "cpp"
 }
 
 lvim.builtin.treesitter.textobjects = {
