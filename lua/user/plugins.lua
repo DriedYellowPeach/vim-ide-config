@@ -29,6 +29,7 @@ lvim.plugins = {
       )
     end,
   },
-  "nvim-treesitter/nvim-treesitter-textobjects"
+  "nvim-treesitter/nvim-treesitter-textobjects",
+  "p00f/clangd_extensions.nvim"
 }
 

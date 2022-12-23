@@ -3,11 +3,6 @@ lvim.lsp.diagnostics.virtual_text = true
 
 lvim.builtin.treesitter.highlight.enable = true
 
--- Additional Plugins
-table.insert(lvim.plugins, {
-  "p00f/clangd_extensions.nvim",
-})
-
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
 
 -- some settings can only passed as commandline flags, see `clangd --help`
