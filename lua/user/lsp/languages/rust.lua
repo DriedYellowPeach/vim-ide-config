@@ -69,6 +69,7 @@ pcall(function()
             enable = true,
             command = "clippy",
           },
+          inlayHints = { locationLinks = false },
         },
       },
     },
