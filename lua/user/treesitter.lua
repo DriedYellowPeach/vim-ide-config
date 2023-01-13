@@ -17,7 +17,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "toml",
   "c",
-  "cpp"
+  "cpp",
+  "go"
 }
 
 lvim.builtin.treesitter.textobjects = {
