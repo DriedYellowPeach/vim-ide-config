@@ -29,7 +29,10 @@ lvim.plugins = {
       )
     end,
   },
-  "nvim-treesitter/nvim-treesitter-textobjects",
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    commit = "a60af980b6f0a6e7ee239ffb9d1d519aaaa1de58",
+  },
   "p00f/clangd_extensions.nvim",
   "olexsmir/gopher.nvim",
   "leoluz/nvim-dap-go",

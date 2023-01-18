@@ -28,7 +28,7 @@ pcall(function()
       inlay_hints = {
         auto = true,
         only_current_line = false,
-        show_parameter_hints = false,
+        show_parameter_hints = true,
         parameter_hints_prefix = "<-",
         other_hints_prefix = "=>",
         max_len_align = false,
