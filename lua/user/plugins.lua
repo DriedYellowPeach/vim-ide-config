@@ -33,13 +33,14 @@ lvim.plugins = {
 	},
 	"p00f/clangd_extensions.nvim",
 	-- "olexsmir/gopher.nvim",
-	{
-		"ray-x/go.nvim",
-		config = function()
-			require("go").setup()
-		end,
-		-- require = { "ray-x/guihua.lua" },
-	},
+	-- {
+	-- 	"ray-x/go.nvim",
+	-- 	config = function()
+	-- 		require("go").setup()
+	-- 	end,
+	-- 	-- require = { "ray-x/guihua.lua" },
+	-- },
+	"ray-x/go.nvim",
 	"ray-x/guihua.lua",
 	"leoluz/nvim-dap-go",
 }
