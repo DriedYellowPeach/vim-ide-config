@@ -12,13 +12,13 @@ if lvim.colorscheme == "darkplus" then
 end
 
 lvim.builtin.treesitter.ensure_installed = {
-  "lua",
-  "markdown",
-  "rust",
-  "toml",
-  "c",
-  "cpp",
-  "go"
+	"lua",
+	"markdown",
+	"rust",
+	"toml",
+	"c",
+	"cpp",
+	"go",
 }
 
 lvim.builtin.treesitter.textobjects = {
@@ -53,4 +53,3 @@ lvim.builtin.treesitter.textobjects = {
 		},
 	},
 }
-
