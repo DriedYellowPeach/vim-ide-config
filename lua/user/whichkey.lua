@@ -23,3 +23,5 @@ lvim.builtin.which_key.mappings["G"] = {
 	name = "Go",
 	r = { "<cmd>GoRun -F<Cr>", "run main" },
 }
+
+lvim.builtin.which_key.mappings.s.u = { "<cmd>Telescope resume<Cr>", "Telescope Resume"}
