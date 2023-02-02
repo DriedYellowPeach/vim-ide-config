@@ -32,15 +32,16 @@ lvim.plugins = {
 		commit = "a60af980b6f0a6e7ee239ffb9d1d519aaaa1de58",
 	},
 	"p00f/clangd_extensions.nvim",
-	-- "olexsmir/gopher.nvim",
-	-- {
-	-- 	"ray-x/go.nvim",
-	-- 	config = function()
-	-- 		require("go").setup()
-	-- 	end,
-	-- 	-- require = { "ray-x/guihua.lua" },
-	-- },
 	"ray-x/go.nvim",
 	"ray-x/guihua.lua",
 	"leoluz/nvim-dap-go",
+	{ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } },
+	"psliwka/vim-smoothie",
+	{
+		"ggandor/leap.nvim",
+		config = function()
+			require("leap").add_default_mappings()
+			require("leap").opts.highlight_unlabeled_phase_one_targets = true
+		end,
+	},
 }

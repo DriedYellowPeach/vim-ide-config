@@ -4,6 +4,9 @@ reload "user.whichkey"
 reload "user.plugins"
 reload "user.treesitter"
 reload "user.colorscheme"
+reload "user.keymappings"
+reload "user.ufo"
+reload "user.telescope"
 
 
 
