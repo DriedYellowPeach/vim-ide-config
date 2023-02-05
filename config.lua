@@ -1,14 +1,10 @@
-reload "user.options"
-reload "user.lsp"
-reload "user.whichkey"
-reload "user.plugins"
-reload "user.treesitter"
-reload "user.colorscheme"
-reload "user.keymappings"
-reload "user.ufo"
-reload "user.telescope"
-
-
-
-
-
+reload("user.options")
+reload("user.lsp")
+reload("user.whichkey")
+reload("user.nvimtree")
+reload("user.plugins")
+reload("user.treesitter")
+reload("user.colorscheme")
+reload("user.keymappings")
+reload("user.ufo")
+reload("user.telescope")
