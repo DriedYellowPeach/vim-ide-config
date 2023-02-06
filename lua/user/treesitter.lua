@@ -14,7 +14,7 @@ end
 lvim.builtin.treesitter.ensure_installed = {
 	"lua",
 	"markdown",
-    "markdown_inline",
+  "markdown_inline",
 	"rust",
 	"toml",
 	"c",
