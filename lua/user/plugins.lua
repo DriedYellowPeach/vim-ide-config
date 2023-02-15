@@ -44,4 +44,7 @@ lvim.plugins = {
 			require("leap").opts.highlight_unlabeled_phase_one_targets = true
 		end,
 	},
+  {
+    "NvChad/nvim-colorizer.lua",
+  }
 }
