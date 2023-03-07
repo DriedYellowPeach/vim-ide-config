@@ -9,7 +9,7 @@ vim.opt.fillchars = {
 	vert = "║",
 	horizup = "╩",
 	horizdown = "╦",
-	vertright = " ",
-	vertleft = " ",
+	vertright = "╠",
+	vertleft = "╣",
 	verthoriz = "╬",
 }
