@@ -4,3 +4,11 @@ lvim.builtin.bufferline.options = {
   tab_size = 10,
   enforce_regular_tabs = false,
 }
+
+lvim.builtin.bufferline.highlights = {
+  buffer_selected = {
+    fg = '#f26419',
+    bold = false,
+    italic = false,
+  }
+}
