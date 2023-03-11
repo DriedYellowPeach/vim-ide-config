@@ -10,4 +10,4 @@ require("tokyonight").setup({
   end,
 })
 
-lvim.colorscheme = "tokyonight-night"
+lvim.colorscheme = "tokyonight-moon"
