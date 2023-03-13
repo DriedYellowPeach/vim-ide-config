@@ -44,7 +44,28 @@ lvim.plugins = {
 			require("leap").opts.highlight_unlabeled_phase_one_targets = true
 		end,
 	},
-  {
-    "NvChad/nvim-colorizer.lua",
-  }
+	{
+		"NvChad/nvim-colorizer.lua",
+	},
+  -- plugin for copilot
+	{
+		"zbirenbaum/copilot.lua",
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+					enabled = false,
+					auto_trigger = false,
+				},
+			})
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup({
+				insert_text = require("copilot_cmp.format").remove_existing,
+			})
+		end,
+	},
 }
