@@ -1,5 +1,5 @@
 lvim.plugins = {
-  -- plugin for rust lsp
+	-- plugin for rust lsp
 	"simrat39/rust-tools.nvim",
 	{
 		"saecki/crates.nvim",
@@ -17,7 +17,7 @@ lvim.plugins = {
 			})
 		end,
 	},
-  -- plugin for showing process of language server
+	-- plugin for showing process of language server
 	{
 		"j-hui/fidget.nvim",
 		config = function()
@@ -29,21 +29,21 @@ lvim.plugins = {
 			})
 		end,
 	},
-  -- plugin for selecting more kinds of textobjects, function for example
+	-- plugin for selecting more kinds of textobjects, function for example
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		commit = "a60af980b6f0a6e7ee239ffb9d1d519aaaa1de58",
 	},
-  -- plugin for clang ide setup
+	-- plugin for clang ide setup
 	"p00f/clangd_extensions.nvim",
-  -- plugins for go ide setup
+	-- plugins for go ide setup
 	"ray-x/go.nvim",
 	"ray-x/guihua.lua",
 	"leoluz/nvim-dap-go",
-  -- pulgins for fold and expand code
+	-- pulgins for fold and expand code
 	{ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } },
 	"psliwka/vim-smoothie",
-  -- plugin for jumping to anywhere blazingly fast
+	-- plugin for jumping to anywhere blazingly fast
 	{
 		"ggandor/leap.nvim",
 		config = function()
@@ -51,11 +51,11 @@ lvim.plugins = {
 			require("leap").opts.highlight_unlabeled_phase_one_targets = true
 		end,
 	},
-  -- plugin for colorize 256-bit hex color bytes
+	-- plugin for colorize 256-bit hex color bytes
 	{
 		"NvChad/nvim-colorizer.lua",
 	},
-  -- plugin for copilot
+	-- plugin for copilot
 	{
 		"zbirenbaum/copilot.lua",
 		config = function()
