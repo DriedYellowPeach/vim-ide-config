@@ -13,3 +13,6 @@ vim.opt.fillchars = {
 	vertleft = "╣",
 	verthoriz = "╬",
 }
+
+lvim.builtin.indentlines.options.show_current_context=false
+lvim.format_on_save.enabled = true
