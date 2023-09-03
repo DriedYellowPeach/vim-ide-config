@@ -31,6 +31,7 @@ lvim.plugins = {
         },
       })
     end,
+    branch = "legacy",
   },
   -- plugin for selecting more kinds of textobjects, function for example
   {

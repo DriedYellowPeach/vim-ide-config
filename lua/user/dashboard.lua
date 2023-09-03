@@ -15,6 +15,9 @@ local text = require "lvim.interface.text"
 local lvim_version = require("lvim.utils.git").get_lvim_version()
 lvim.builtin.alpha.dashboard.section.footer.val = text.align_center({ width = 0 }, {
   "",
-  "🤓Happier Than Ever😎",
+  -- "🤓Happier Than Ever😎",
+  "🙈🙉🙊",
+  "When the people fear the goverment, there is tyranny.",
+  "",
   lvim_version,
 }, 0.5)
