@@ -90,4 +90,20 @@ lvim.plugins = {
     end,
     cmd = "Glow"
   },
+  -- plugin for java lsp
+  "mfussenegger/nvim-jdtls",
+  -- plugin for python lsp
+  {
+    "AckslD/swenv.nvim",
+    config = function()
+      require("swenv").setup({
+        venvs_path = vim.fn.expand('~/Library/Caches/pypoetry/virtualenvs'),
+      })
+    end
+  },
+  "stevearc/dressing.nvim",
+  "mfussenegger/nvim-dap-python",
+  "nvim-neotest/neotest",
+  "nvim-neotest/neotest-python",
+
 }

@@ -1,5 +1,8 @@
 lvim.format_on_save = false
-lvim.lsp.diagnostics.virtual_text = true
+-- lvim.lsp.diagnostics.virtual_text = true
+vim.diagnostic.config({
+  virtual_text = true,
+})
 
 lvim.builtin.treesitter.highlight.enable = true
 
@@ -20,9 +23,9 @@ local clangd_flags = {
   "--suggest-missing-includes",
   "--cross-file-rename",
   "--completion-style=detailed",
-  "--pch-storage=memory",    -- could also be disk
+  "--pch-storage=memory",     -- could also be disk
   "--folding-ranges",
-  "--enable-config",         -- clangd 11+ supports reading from .clangd configuration file
+  "--enable-config",          -- clangd 11+ supports reading from .clangd configuration file
   "--offset-encoding=utf-16", --temporary fix for null-ls
   -- "--limit-references=1000",
   -- "--limit-resutls=1000",
@@ -76,7 +79,7 @@ local opts = {
   -- capabilities = capabilities,
 }
 
-require("lvim.lsp.manager").setup("clangd", opts)
+-- require("lvim.lsp.manager").setup("clangd", opts)
 
 -- install codelldb with :MasonInstall codelldb
 -- configure nvim-dap (codelldb)

@@ -20,6 +20,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"c",
 	"cpp",
 	"go",
+  "python",
   -- "yaml",
 }
 
