@@ -79,7 +79,7 @@ local opts = {
   -- capabilities = capabilities,
 }
 
--- require("lvim.lsp.manager").setup("clangd", opts)
+require("lvim.lsp.manager").setup("clangd", opts)
 
 -- install codelldb with :MasonInstall codelldb
 -- configure nvim-dap (codelldb)
