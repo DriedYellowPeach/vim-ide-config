@@ -7,7 +7,6 @@ end
 local home = os.getenv("HOME")
 local root_markers = { "gradlew", ".git" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
-
 local workspace_folder = home .. "/.local/share/lunarvim/jdtls-workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
 -- Determine OS
@@ -102,7 +101,7 @@ local config = {
 config.on_attach = function(client, bufnr)
   local _, _ = pcall(vim.lsp.codelens.refresh)
   require("jdtls").setup_dap({ hotcodereplace = "auto" })
-  require("lvim.lsp").on_attach(client, bufnr)
+  require("lvim.lsp").common_on_attach(client, bufnr)
   local status_ok, jdtls_dap = pcall(require, "jdtls.dap")
   if status_ok then
     jdtls_dap.setup_dap_main_class_configs()
@@ -123,6 +122,7 @@ formatters.setup {
 
 require("jdtls").start_or_attach(config)
 
+-- setup keybindings
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
   return
@@ -147,7 +147,7 @@ local vopts = {
 }
 
 local mappings = {
-  C = {
+  P = {
     name = "Java",
     o = { "<Cmd>lua require'jdtls'.organize_imports()<CR>", "Organize Imports" },
     v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
@@ -159,7 +159,7 @@ local mappings = {
 }
 
 local vmappings = {
-  C = {
+  P = {
     name = "Java",
     v = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable" },
     c = { "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant" },

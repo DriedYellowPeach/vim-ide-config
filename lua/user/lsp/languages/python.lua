@@ -1,4 +1,3 @@
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 -- setup formatting
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup { { name = "black" }, }

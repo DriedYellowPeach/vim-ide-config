@@ -3,7 +3,8 @@ lvim.plugins = {
   "simrat39/rust-tools.nvim",
   {
     "saecki/crates.nvim",
-    version = "v0.3.0",
+    -- version = "v0.3.0",
+    event = { "BufRead Cargo.toml" },
     require = { "nvim-lua/plenary.nvim" },
     config = function()
       require("crates").setup({
