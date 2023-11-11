@@ -2,7 +2,6 @@ lvim.plugins = {
 	-- plugin for rust lsp
 	{
 		"simrat39/rust-tools.nvim",
-		lazy = true,
 	},
 	{
 		"saecki/crates.nvim",
@@ -123,4 +122,6 @@ lvim.plugins = {
 		"nvim-neotest/neotest-python",
 		event = { "BufEnter *.py" },
 	},
+  -- plugin for html autotag
+  "windwp/nvim-ts-autotag",
 }

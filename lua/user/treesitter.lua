@@ -21,6 +21,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "cpp",
   "go",
   "python",
+  "html",
+  "java",
   -- "yaml",
 }
 
@@ -56,3 +58,5 @@ lvim.builtin.treesitter.textobjects = {
     },
   },
 }
+
+lvim.builtin.treesitter.autotag.enable = true

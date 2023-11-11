@@ -1,3 +1,6 @@
+vim.opt_local.tabstop = 2
+vim.opt_local.shiftwidth = 2
+
 local status, jdtls = pcall(require, "jdtls")
 if not status then
   return
