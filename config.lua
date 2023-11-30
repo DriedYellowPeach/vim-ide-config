@@ -1,3 +1,4 @@
+reload("user.autocommands")
 reload("user.lsp")
 reload("user.whichkey")
 reload("user.nvimtree")
