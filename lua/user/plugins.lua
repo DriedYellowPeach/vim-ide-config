@@ -25,16 +25,23 @@ lvim.plugins = {
 		"j-hui/fidget.nvim",
 		config = function()
 			require("fidget").setup({
-				text = {
-					spinner = "moon",
-					done = "👍🤓👍",
+				progress = {
+					display = {
+						progress_icon = { pattern = "moon", period = 1 },
+						done_icon = "👍🤓👍",
+					},
 				},
-				window = {
-					blend = 0,
+
+				notification = {
+					-- override_vim_notify = true,
+					window = {
+						-- normal_hl = "Normal",
+						border = "rounded",
+						winblend = 20,
+					},
 				},
 			})
 		end,
-		branch = "legacy",
 	},
 	-- plugin for selecting more kinds of textobjects, function for example
 	{
@@ -122,6 +129,15 @@ lvim.plugins = {
 		"nvim-neotest/neotest-python",
 		event = { "BufEnter *.py" },
 	},
-  -- plugin for html autotag
-  "windwp/nvim-ts-autotag",
+	-- plugin for html autotag
+	"windwp/nvim-ts-autotag",
+	-- nvim-surround plugin
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup()
+		end,
+	},
 }

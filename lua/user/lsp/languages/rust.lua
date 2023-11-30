@@ -5,6 +5,70 @@ local codelldb_path = mason_path .. "bin/codelldb"
 local liblldb_path = mason_path .. "packages/codelldb/extension/lldb/lib/liblldb"
 local this_os = vim.loop.os_uname().sysname
 
+local util = require("lspconfig.util")
+local function is_library(fname)
+	local user_home = util.path.sanitize(vim.env.HOME)
+	local cargo_home = os.getenv("CARGO_HOME") or util.path.join(user_home, ".cargo")
+	local registry = util.path.join(cargo_home, "registry", "src")
+
+	local rustup_home = os.getenv("RUSTUP_HOME") or util.path.join(user_home, ".rustup")
+	local toolchains = util.path.join(rustup_home, "toolchains")
+
+	for _, item in ipairs({ toolchains, registry }) do
+		if fname:sub(1, #item) == item then
+			local clients = vim.lsp.get_active_clients({ name = "rust_analyzer" })
+			return #clients > 0 and clients[#clients].config.root_dir or nil
+		end
+	end
+end
+
+local function root_dir(fname)
+	local reuse_active = is_library(fname)
+	if reuse_active then
+		-- vim.notify("reuse active rust analyzer", vim.log.levels.INFO)
+		return reuse_active
+	end
+	local cargo_crate_dir = util.root_pattern("Cargo.toml")(fname)
+	local cmd = { "cargo", "metadata", "--no-deps", "--format-version", "1" }
+	if cargo_crate_dir ~= nil then
+		cmd[#cmd + 1] = "--manifest-path"
+		cmd[#cmd + 1] = util.path.join(cargo_crate_dir, "Cargo.toml")
+	end
+	local cargo_metadata = ""
+	local cargo_metadata_err = ""
+	local cm = vim.fn.jobstart(cmd, {
+		on_stdout = function(_, d, _)
+			cargo_metadata = table.concat(d, "\n")
+		end,
+		on_stderr = function(_, d, _)
+			cargo_metadata_err = table.concat(d, "\n")
+		end,
+		stdout_buffered = true,
+		stderr_buffered = true,
+	})
+	if cm > 0 then
+		cm = vim.fn.jobwait({ cm })[1]
+	else
+		cm = -1
+	end
+	local cargo_workspace_dir = nil
+	if cm == 0 then
+		cargo_workspace_dir = vim.json.decode(cargo_metadata)["workspace_root"]
+		if cargo_workspace_dir ~= nil then
+			cargo_workspace_dir = util.path.sanitize(cargo_workspace_dir)
+		end
+	else
+		vim.notify(
+			string.format("[lspconfig] cmd (%q) failed:\n%s", table.concat(cmd, " "), cargo_metadata_err),
+			vim.log.levels.WARN
+		)
+	end
+	return cargo_workspace_dir
+		or cargo_crate_dir
+		or util.root_pattern("rust-project.json")(fname)
+		or util.find_git_ancestor(fname)
+end
+
 -- The path in windows is different
 if this_os:find("Windows") then
 	codelldb_path = mason_path .. "packages\\codelldb\\extension\\adapter\\codelldb.exe"
@@ -13,16 +77,6 @@ else
 	-- The liblldb extension is .so for linux and .dylib for macOS
 	liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
 end
--- local codelldb_adapter = {
--- 	type = "server",
--- 	port = "${port}",
--- 	executable = {
--- 		command = mason_path .. "bin/codelldb",
--- 		args = { "--port", "${port}" },
--- 		-- On windows you may have to uncomment this:
--- 		-- detached = false,
--- 	},
--- }
 
 pcall(function()
 	require("rust-tools").setup({
@@ -67,6 +121,7 @@ pcall(function()
 			end,
 
 			capabilities = require("lvim.lsp").common_capabilities(),
+			root_dir = root_dir,
 			settings = {
 				["rust-analyzer"] = {
 					lens = {
