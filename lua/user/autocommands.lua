@@ -13,7 +13,7 @@ lvim.autocommands = {
 	{
 		"TermOpen",
 		{
-			pattern = "*",
+			pattern = "zsh",
 			desc = "Enter insert mode when open a shell",
 			command = "startinsert | set winfixheight",
 		},
