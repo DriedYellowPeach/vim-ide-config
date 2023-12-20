@@ -140,4 +140,6 @@ lvim.plugins = {
 			require("nvim-surround").setup()
 		end,
 	},
+  -- install mason tool automatically
+  "WhoIsSethDaniel/mason-tool-installer.nvim",
 }
