@@ -8,7 +8,7 @@ lvim.builtin.bufferline.options = {
 lvim.builtin.bufferline.highlights = {
   buffer_selected = {
     fg = '#f26419',
-    bold = false,
+    bold = true,
     italic = false,
   }
 }
