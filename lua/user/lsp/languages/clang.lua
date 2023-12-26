@@ -5,6 +5,7 @@ vim.diagnostic.config({
 })
 
 lvim.builtin.treesitter.highlight.enable = true
+vim.list_extend(lvim.builtin.treesitter.ensure_installed, {"c", "cpp"})
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
 
