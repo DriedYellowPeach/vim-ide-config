@@ -23,6 +23,7 @@ lvim.plugins = {
 	-- plugin for showing process of language server
 	{
 		"j-hui/fidget.nvim",
+    commit="b26cdb2b8ea2bf06d27f1bb254e8f027e259f74f",
 		config = function()
 			require("fidget").setup({
 				progress = {
@@ -53,8 +54,7 @@ lvim.plugins = {
 	-- plugin for clang ide setup
 	"p00f/clangd_extensions.nvim",
 	-- plugins for go ide setup
-	"ray-x/go.nvim",
-	"ray-x/guihua.lua",
+  "olexsmir/gopher.nvim",
 	"leoluz/nvim-dap-go",
 	-- pulgins for fold and expand code
 	{
@@ -140,6 +140,6 @@ lvim.plugins = {
 			require("nvim-surround").setup()
 		end,
 	},
-  -- install mason tool automatically
-  "WhoIsSethDaniel/mason-tool-installer.nvim",
+	-- install mason tool automatically
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
 }
