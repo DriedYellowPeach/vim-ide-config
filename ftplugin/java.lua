@@ -1,7 +1,6 @@
 vim.opt_local.tabstop = 2
 vim.opt_local.shiftwidth = 2
 
-vim.list_extend(lvim.builtin.treesitter.ensure_installed, { "java" })
 local status, jdtls = pcall(require, "jdtls")
 if not status then
 	return
@@ -120,11 +119,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	callback = function()
 		local _, _ = pcall(vim.lsp.codelens.refresh)
 	end,
-})
-
-local formatters = require("lvim.lsp.null-ls.formatters")
-formatters.setup({
-	{ command = "google_java_format", filetypes = { "java" } },
 })
 
 require("jdtls").start_or_attach(config)

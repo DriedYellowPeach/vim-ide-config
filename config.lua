@@ -1,6 +1,7 @@
 reload("user.autocommands")
-reload("user.mason")
+reload("user.mason-installer")
 reload("user.lsp")
+reload("user.null-ls")
 reload("user.whichkey")
 reload("user.nvimtree")
 reload("user.plugins")

@@ -16,7 +16,3 @@ vim.opt.fillchars = {
 
 lvim.builtin.indentlines.options.show_current_context = true
 lvim.keys.term_mode["<esc>"] = "<C-\\><C-n>"
-
--- format on save
-lvim.format_on_save.enabled = true
-lvim.format_on_save.pattern = { "*.rs", "*.go", "*.html", "*.java", "*.lua" }

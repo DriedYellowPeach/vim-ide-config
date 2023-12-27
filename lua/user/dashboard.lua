@@ -29,7 +29,7 @@ alpha_hdr.opts.hl = "HeaderTxt"
 
 -- setup alpha footer
 local text = require("lvim.interface.text")
-local lvim_version = require("lvim.utils.git").get_lvim_version()
+-- local lvim_version = require("lvim.utils.git").get_lvim_version()
 alpha_ftr.val = text.align_center({ width = 0 }, {
 	"",
 	"",
