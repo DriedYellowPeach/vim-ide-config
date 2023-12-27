@@ -1,5 +1,5 @@
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
-vim.list_extend(lvim.builtin.treesitter.ensure_installed, {"rust", "toml"})
+vim.list_extend(lvim.builtin.treesitter.ensure_installed, { "rust", "toml" })
 
 local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 local codelldb_path = mason_path .. "bin/codelldb"
@@ -139,20 +139,61 @@ pcall(function()
 	})
 end)
 
-lvim.builtin.dap.on_config_done = function(dap)
-	dap.adapters.codelldb = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
-	dap.configurations.rust = {
-		{
-			name = "Launch file",
-			type = "codelldb",
-			request = "launch",
-			program = function()
-				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-			end,
-			cwd = "${workspaceFolder}",
-			stopOnEntry = false,
+-- lvim.builtin.dap.on_config_done = function(dap)
+-- 	dap.adapters.codelldb = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+
+-- 	dap.configurations.rust = {
+-- 		{
+-- 			name = "Launch file",
+-- 			type = "codelldb",
+-- 			request = "launch",
+-- 			program = function()
+-- 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+-- 			end,
+-- 			cwd = "${workspaceFolder}",
+-- 			stopOnEntry = false,
+-- 		},
+-- 	}
+-- end
+
+local status_ok, dap = pcall(require, "dap")
+if not status_ok then
+	return
+end
+
+if dap.adapters.rust == nil then
+	dap.adapters.rust = {
+		type = "server",
+		port = "${port}",
+		host = "127.0.0.1",
+		executable = {
+			command = codelldb_path,
+			args = { "--liblldb", liblldb_path, "--port", "${port}" },
 		},
 	}
 end
 
-vim.api.nvim_set_keymap("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>", { noremap = true, silent = true })
+dap.configurations.rust = {
+	{
+		name = "Native Rust Debug",
+		type = "rust",
+		request = "launch",
+		-- cwd = args.workspaceRoot,
+		program = function()
+				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		args = function()
+			local inputstr = vim.fn.input("Params: ", "")
+			local params = {}
+			local sep = "%s"
+			for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+				table.insert(params, str)
+			end
+			return params
+		end,
+		stopOnEntry = false,
+		runInTerminal = false,
+	},
+}
+
+-- vim.api.nvim_set_keymap("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>", { noremap = true, silent = true })
