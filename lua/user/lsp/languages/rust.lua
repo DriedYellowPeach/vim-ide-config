@@ -1,3 +1,9 @@
+-- formatter setup
+local formatters = require("lvim.lsp.null-ls.formatters")
+formatters.setup({
+	{ command = "rustfmt", filetypes = { "rust" } },
+})
+-- rust-tools setup
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 vim.list_extend(lvim.builtin.treesitter.ensure_installed, { "rust", "toml" })
 
@@ -156,6 +162,7 @@ end)
 -- 	}
 -- end
 
+-- builtin dap setup
 local status_ok, dap = pcall(require, "dap")
 if not status_ok then
 	return
@@ -180,7 +187,7 @@ dap.configurations.rust = {
 		request = "launch",
 		-- cwd = args.workspaceRoot,
 		program = function()
-				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 		end,
 		args = function()
 			local inputstr = vim.fn.input("Params: ", "")
@@ -195,5 +202,3 @@ dap.configurations.rust = {
 		runInTerminal = false,
 	},
 }
-
--- vim.api.nvim_set_keymap("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>", { noremap = true, silent = true })

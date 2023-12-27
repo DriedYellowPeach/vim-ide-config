@@ -4,6 +4,7 @@ vim.opt_local.shiftwidth = 2
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "emmet-ls" })
 vim.list_extend(lvim.builtin.treesitter.ensure_installed, { "html" })
 
+-- lsp setup
 local lsp_manager = require("lvim.lsp.manager")
 lsp_manager.setup("emmet_ls", {
 	filetypes = { "astro", "html" },
@@ -11,6 +12,7 @@ lsp_manager.setup("emmet_ls", {
 	capabilities = require("lvim.lsp").common_capabilities(),
 })
 
+-- formatter setup
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ command = "prettier", filetypes = { "html", "css" } },
