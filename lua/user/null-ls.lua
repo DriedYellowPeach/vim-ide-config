@@ -1,12 +1,12 @@
 -- format on save
 lvim.format_on_save.enabled = true
-lvim.format_on_save.pattern = { "*.rs", "*.go", "*.html", "*.java", "*.lua" }
+lvim.format_on_save.pattern = { "*.rs", "*.go", "*.html", "*.java", "*.lua", "*.md", "*.py" }
 
 -- formatters setup
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ command = "prettier", filetypes = { "html", "css", "markdown" } },
-	{ command = "rustfmt", filetypes = { "rust" } },
+	{ command = "rustfmt", filetypes = { "rust" }, args = { "--edition=2021" } },
 	{ command = "google_java_format", filetypes = { "java" } },
 	{ command = "clang-format", filetypes = { "c", "cpp" }, args = { "--style=file" } },
 	{ command = "goimports", filetypes = { "go" } },
