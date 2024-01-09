@@ -100,12 +100,16 @@ dap.configurations.c = {
 		type = "c",
 		request = "launch",
 		program = function()
-			local path
-			vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() .. "/build/" }, function(input)
-				path = input
-			end)
-			vim.cmd([[redraw]])
-			return path
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		args = function()
+			local inputstr = vim.fn.input("Params: ", "")
+			local params = {}
+			local sep = "%s"
+			for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+				table.insert(params, str)
+			end
+			return params
 		end,
 		cwd = "${workspaceFolder}",
 		stopOnEntry = false,
