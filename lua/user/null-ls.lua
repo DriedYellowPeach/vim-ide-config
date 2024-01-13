@@ -1,6 +1,6 @@
 -- format on save
 lvim.format_on_save.enabled = true
-lvim.format_on_save.pattern = { "*.rs", "*.go", "*.html", "*.java", "*.lua", "*.md", "*.py", "*.c", "*.cpp" }
+lvim.format_on_save.pattern = { "*.rs", "*.go", "*.html", "*.java", "*.lua", "*.md", "*.py", "*.c", "*.cpp", "*.sh" }
 
 -- formatters setup
 local formatters = require("lvim.lsp.null-ls.formatters")
@@ -18,6 +18,7 @@ formatters.setup({
 	{ command = "gofumpt", filetypes = { "go" } },
 	{ command = "black", filetypes = { "python" } },
 	{ command = "stylua", filetypes = { "lua" } },
+	{ command = "shfmt", filetypes = { "sh" } },
 })
 
 -- linters setup
