@@ -4,7 +4,22 @@ local alpha_ftr = lvim.builtin.alpha.dashboard.section.footer
 
 -- setup alpha header
 math.randomseed(os.time())
-local colors = { "cyan", "yellow", "white", "violet", "lightyellow" }
+local colors = {
+	"lightred",
+	"#fca7ea",
+	"lightyellow",
+	"darkyellow",
+	"gold",
+	"orange",
+	"lightblue",
+	"skyblue",
+	"azure",
+	"bisque",
+	"silver",
+	"lightgreen",
+	"forestgreen",
+	"ivory",
+}
 
 local random_color = colors[math.random(1, #colors)]
 
