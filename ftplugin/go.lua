@@ -15,7 +15,6 @@ local opts = {
 local mappings = {
 	C = {
 		name = "Go",
-		-- r = { "<cmd>GoRun -F<Cr>", "run main" },
 		i = { "<cmd>GoInstallDeps<Cr>", "Install Go Dependencies" },
 		f = { "<cmd>GoMod tidy<cr>", "Tidy" },
 		a = { "<cmd>GoTestAdd<Cr>", "Add Test" },

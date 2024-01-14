@@ -139,23 +139,6 @@ pcall(function()
 	})
 end)
 
--- lvim.builtin.dap.on_config_done = function(dap)
--- 	dap.adapters.codelldb = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
-
--- 	dap.configurations.rust = {
--- 		{
--- 			name = "Launch file",
--- 			type = "codelldb",
--- 			request = "launch",
--- 			program = function()
--- 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
--- 			end,
--- 			cwd = "${workspaceFolder}",
--- 			stopOnEntry = false,
--- 		},
--- 	}
--- end
-
 -- builtin dap setup
 local status_ok, dap = pcall(require, "dap")
 if not status_ok then

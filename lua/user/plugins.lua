@@ -23,7 +23,6 @@ lvim.plugins = {
 	-- plugin for showing process of language server
 	{
 		"j-hui/fidget.nvim",
-		-- commit = "b26cdb2b8ea2bf06d27f1bb254e8f027e259f74f",
 		config = function()
 			require("fidget").setup({
 				progress = {

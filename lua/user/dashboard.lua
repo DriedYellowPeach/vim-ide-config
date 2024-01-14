@@ -25,7 +25,7 @@ local random_color = colors[math.random(1, #colors)]
 
 vim.cmd(string.format("autocmd ColorScheme * highlight HeaderTxt cterm=bold gui=bold guifg=%s", random_color))
 
-local header_txt = {
+local header_simple3d = {
 	[[                                                           ]],
 	[[                                                           ]],
 	[[                                                           ]],
@@ -39,7 +39,85 @@ local header_txt = {
 	[[                                                           ]],
 }
 
-alpha_hdr.val = header_txt
+local header_slick = {
+	[[                                           ]],
+	[[                                           ]],
+	[[                                           ]],
+	[[                                           ]],
+	[[╱╭━╮╱╭╮╱╭━━━╮╱╭━━╮╱╭╮╱╱╱╱╭╮╱╱╭╮╱╭━━╮╱╭━╮╭━╮]],
+	[[╱┃┃╰╮┃┃╱┃╭━━╯╱╰┫┣╯╱┃┃╱╱╱╱┃╰╮╭╯┃╱╰┫┣╯╱┃┃╰╯┃┃]],
+	[[╱┃╭╮╰╯┃╱┃╰━━╮╱╱┃┃╱╱┃┃╱╱╱╱╰╮┃┃╭╯╱╱┃┃╱╱┃╭╮╭╮┃]],
+	[[╱┃┃╰╮┃┃╱┃╭━━╯╱╱┃┃╱╱┃┃╱╭╮╱╱┃╰╯┃╱╱╱┃┃╱╱┃┃┃┃┃┃]],
+	[[╱┃┃╱┃┃┃╱┃╰━━╮╱╭┫┣╮╱┃╰━╯┃╱╱╰╮╭╯╱╱╭┫┣╮╱┃┃┃┃┃┃]],
+	[[╱╰╯╱╰━╯╱╰━━━╯╱╰━━╯╱╰━━━╯╱╱╱╰╯╱╱╱╰━━╯╱╰╯╰╯╰╯]],
+	[[                                           ]],
+	[[                                           ]],
+}
+
+local header_chrome = {
+	[[                        ]],
+	[[                        ]],
+	[[                        ]],
+	[[                        ]],
+	[[╔╗╔ ╔═╗ ╦ ╦   ╦  ╦ ╦ ╔╦╗]],
+	[[║║║ ║╣  ║ ║   ╚╗╔╝ ║ ║║║]],
+	[[╝╚╝ ╚═╝ ╩ ╩═╝  ╚╝  ╩ ╩ ╩]],
+	[[                        ]],
+	[[                        ]],
+}
+
+local header_simpleblock = {
+	[[                                                                      ]],
+	[[                                                                      ]],
+	[[                                                                      ]],
+	[[                                                                      ]],
+	[[_|      _|  _|_|_|_|  _|_|_|  _|        _|      _|  _|_|_|  _|      _|]],
+	[[_|_|    _|  _|          _|    _|        _|      _|    _|    _|_|  _|_|]],
+	[[_|  _|  _|  _|_|_|      _|    _|        _|      _|    _|    _|  _|  _|]],
+	[[_|    _|_|  _|          _|    _|          _|  _|      _|    _|      _|]],
+	[[_|      _|  _|_|_|_|  _|_|_|  _|_|_|_|      _|      _|_|_|  _|      _|]],
+	[[                                                                      ]],
+	[[                                                                      ]],
+}
+
+local header_block = {
+	[[                                                          ]],
+	[[                                                          ]],
+	[[                                                          ]],
+	[[                                                          ]],
+	[[███╗   ██╗ ███████╗ ██╗ ██╗      ██╗   ██╗ ██╗ ███╗   ███╗]],
+	[[████╗  ██║ ██╔════╝ ██║ ██║      ██║   ██║ ██║ ████╗ ████║]],
+	[[██╔██╗ ██║ █████╗   ██║ ██║      ██║   ██║ ██║ ██╔████╔██║]],
+	[[██║╚██╗██║ ██╔══╝   ██║ ██║      ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║]],
+	[[██║ ╚████║ ███████╗ ██║ ███████╗  ╚████╔╝  ██║ ██║ ╚═╝ ██║]],
+	[[╚═╝  ╚═══╝ ╚══════╝ ╚═╝ ╚══════╝   ╚═══╝   ╚═╝ ╚═╝     ╚═╝]],
+	[[                                                          ]],
+	[[                                                          ]],
+}
+
+local header_simple = {
+	[[                                                ]],
+	[[                                                ]],
+	[[                                                ]],
+	[[                                                ]],
+	[[ _  _   ___   ___   _     _    _   ___   _    _ ]],
+	[[| \| | | __| |_ _| | |    \ \ / / |_ _| | \  / |]],
+	[[| .` | | _|   | |  | |__   \ V /   | |  | |\/| |]],
+	[[|_|\_| |___| |___| |____|   \_/   |___| |_|  |_|]],
+	[[                                                ]],
+	[[                                                ]],
+}
+
+local header_texts = {
+	header_simple,
+	header_slick,
+	header_simple3d,
+	header_chrome,
+	header_simpleblock,
+	header_block,
+}
+
+alpha_hdr.val = header_texts[math.random(1, #header_texts)]
 alpha_hdr.opts.hl = "HeaderTxt"
 
 -- setup alpha footer
@@ -61,7 +139,6 @@ vim.cmd(
 		random_color
 	)
 )
--- vim.cmd([[autocmd ColorScheme * highlight FOOTERTXT cterm=bold cterm=italic gui=bold,italic guifg=#fca7ea]])
 alpha_ftr.opts.hl = "FooterTxt"
 
 -- setup alpha buttons
