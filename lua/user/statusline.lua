@@ -36,7 +36,7 @@ local compo_lsp = {
 			.. " "
 			.. ":["
 			.. "%*"
-			.. table.concat(unique_client_names, ", ")
+			.. table.concat(unique_client_names, "%#DiagnosticInfo#" .. "|" .. "%*")
 			.. "%#DiagnosticInfo#"
 			.. "]"
 			.. "%*"

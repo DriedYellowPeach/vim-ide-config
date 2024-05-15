@@ -54,7 +54,7 @@ lvim.plugins = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		lazy = true,
 		event = "BufReadPre",
-		commit = "a60af980b6f0a6e7ee239ffb9d1d519aaaa1de58",
+		-- commit = "a60af980b6f0a6e7ee239ffb9d1d519aaaa1de58",
 	},
 	-- plugin for clang ide setup
 	"p00f/clangd_extensions.nvim",
@@ -149,4 +149,13 @@ lvim.plugins = {
 	},
 	-- install mason tool automatically
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	-- preview typst
+	{
+		"chomosuke/typst-preview.nvim",
+		lazy = false, -- or ft = 'typst'
+		version = "0.3.*",
+		build = function()
+			require("typst-preview").update()
+		end,
+	},
 }
