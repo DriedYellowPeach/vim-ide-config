@@ -5,8 +5,8 @@ vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.foldcolumn = "0"
 
-vim.keymap.set("n", "zR", require("ufo").openAllFolds, {desc="fold all"})
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds, {desc="unfold all"})
+vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "unfold all" })
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "fold all" })
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
 	local newVirtText = {}
