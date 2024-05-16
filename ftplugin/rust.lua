@@ -12,26 +12,48 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
+-- m means magic
 local mappings = {
-	C = {
-		name = "Rust",
-		r = { "<cmd>RustRunnables<Cr>", "Runnables" },
-		-- t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
-		m = { "<cmd>RustExpandMacro<Cr>", "Expand Macro" },
-		c = { "<cmd>RustOpenCargo<Cr>", "Open Cargo" },
-		p = { "<cmd>RustParentModule<Cr>", "Parent Module" },
-		d = { "<cmd>RustDebuggables<Cr>", "Debuggables" },
-		v = { "<cmd>RustViewCrateGraph<Cr>", "View Crate Graph" },
-		R = {
-			"<cmd>lua require('rust-tools/workspace_refresh')._reload_workspace_from_cargo_toml()<Cr>",
-			"Reload Workspace",
+	m = {
+		name = "Rust 󱡃",
+		-- only setkeymaps for runnables and debuggables
+		-- cause there are already code lens for run/debug the line under cursor
+		r = { "<cmd>RustLsp runnables<Cr>", "Runnables" },
+		d = { "<cmd>RustLsp debuggables<Cr>", "Debuggables" },
+		e = { "<cmd>RustLsp expandMacro<Cr>", "Expand Macro" },
+		m = {
+			name = "Move Item",
+			j = {
+				"<cmd>RustLsp moveItem down<Cr>",
+				"down",
+			},
+			k = {
+				"<cmd>RustLsp moveItem up<Cr>",
+				"up",
+			},
 		},
-		o = { "<cmd>RustOpenExternalDocs<Cr>", "Open External Docs" },
-		y = { "<cmd>lua require'crates'.open_repository()<cr>", "[crates] open repository" },
-		P = { "<cmd>lua require'crates'.show_popup()<cr>", "[crates] show popup" },
-		i = { "<cmd>lua require'crates'.show_crate_popup()<cr>", "[crates] show info" },
-		f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "[crates] show features" },
-		D = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "[crates] show dependencies" },
+		["?"] = {
+			"<cmd>RustLsp explainError<Cr>",
+			"explain error",
+		},
+		-- todo
+		-- parentModule
+		-- joinLines
+		-- syntaxTree
+		-- logFile
+
+		-- r = {
+		-- 	function()
+		-- 		-- set the position to center using vim.ui.input
+		-- 		vim.ui.input({
+		-- 			prompt = "Enter arguments: ",
+		-- 			-- position = "center",
+		-- 		}, function(input)
+		-- 			print("Input: ", input)
+		-- 		end)
+		-- 	end,
+		-- 	"Runnables",
+		-- },
 	},
 }
 

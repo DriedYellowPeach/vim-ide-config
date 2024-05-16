@@ -1,7 +1,17 @@
 lvim.plugins = {
 	-- plugin for rust lsp
+	-- {
+	-- 	"simrat39/rust-tools.nvim",
+	-- },
+	-- new plugin for rust lsp
 	{
-		"simrat39/rust-tools.nvim",
+		"mrcjkb/rustaceanvim",
+		version = "^4", -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
+	-- Inlay hints for rust
+	{
+		"lvimuser/lsp-inlayhints.nvim",
 	},
 	{
 		"saecki/crates.nvim",
