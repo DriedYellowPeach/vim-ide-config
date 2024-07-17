@@ -1,3 +1,4 @@
+lvim.builtin.telescope.defaults.wrap_results = true
 lvim.builtin.telescope.defaults.file_ignore_patterns = {
 	".git/",
 	"target/",

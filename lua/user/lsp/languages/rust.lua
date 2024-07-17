@@ -42,13 +42,20 @@ vim.g.rustaceanvim = {
 	server = {
 		on_attach = function(client, bufnr)
 			require("lvim.lsp").common_on_attach(client, bufnr)
-			require("lsp-inlayhints").on_attach(client, bufnr)
+			vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+			-- require("lsp-inlayhints").on_attach(client, bufnr)
 		end,
 		default_settings = {
 			-- rust-analyzer lanaguage server configuration
 			["rust-analyzer"] = {
 				lens = {
 					enable = true,
+					run = {
+						enable = true,
+					},
+					debug = {
+						enable = true,
+					},
 				},
 				checkOnSave = {
 					enable = true,
@@ -57,10 +64,9 @@ vim.g.rustaceanvim = {
 			},
 		},
 	},
-
-	dap = {
-		adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
-	},
+	-- dap = {
+	-- 	adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
+	-- },
 }
 
 -- builtin dap setup

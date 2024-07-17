@@ -6,5 +6,6 @@ local lsp_manager = require("lvim.lsp.manager")
 lsp_manager.setup("typst_lsp", {
 	settings = {
 		exportPdf = "onType",
+		-- experimentalFormatterMode = "on",
 	},
 })
