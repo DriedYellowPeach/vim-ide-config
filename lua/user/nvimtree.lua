@@ -3,5 +3,3 @@ table.insert(lvim.builtin.nvimtree.setup.filters.custom, "^\\.git$")
 
 lvim.builtin.nvimtree.setup.git.enable = true
 lvim.builtin.nvimtree.setup.renderer.icons.web_devicons.folder.enable = false
--- lvim.builtin.nvimtree.setup.view.side = "right"
--- lvim.builtin.nvimtree.setup.view.adaptive_size = true

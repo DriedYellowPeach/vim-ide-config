@@ -18,6 +18,9 @@ require("tokyonight").setup({
 			fg = "#636d9f",
 			bg = colors.bg_dark,
 		}
+		hl.Quote = {
+			fg = colors.teal,
+		}
 	end,
 
 	styles = {

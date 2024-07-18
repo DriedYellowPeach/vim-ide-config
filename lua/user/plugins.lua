@@ -1,18 +1,14 @@
 lvim.plugins = {
 	-- plugin for rust lsp
-	-- {
-	-- 	"simrat39/rust-tools.nvim",
-	-- },
-	-- new plugin for rust lsp
 	{
 		"mrcjkb/rustaceanvim",
 		version = "^4", -- Recommended
 		lazy = false, -- This plugin is already lazy
 	},
-	-- Inlay hints for rust
-	{
-		"lvimuser/lsp-inlayhints.nvim",
-	},
+	-- -- 2.Inlay hints for rust
+	-- {
+	-- 	"lvimuser/lsp-inlayhints.nvim",
+	-- },
 	{
 		"saecki/crates.nvim",
 		-- version = "v0.3.0",
@@ -65,7 +61,6 @@ lvim.plugins = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		lazy = true,
 		event = "BufReadPre",
-		-- commit = "a60af980b6f0a6e7ee239ffb9d1d519aaaa1de58",
 	},
 	-- plugin for clang ide setup
 	"p00f/clangd_extensions.nvim",
@@ -168,5 +163,15 @@ lvim.plugins = {
 		build = function()
 			require("typst-preview").update()
 		end,
+	},
+	-- makrdown headline hilight plugin
+	{
+		"lukas-reineke/headlines.nvim",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = true,
+	},
+	-- lua debug adapter
+	{
+		"jbyuki/one-small-step-for-vimkind",
 	},
 }
