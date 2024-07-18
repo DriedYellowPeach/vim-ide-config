@@ -18,7 +18,7 @@ lvim.format_on_save.pattern = {
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ command = "prettier", filetypes = { "html", "css", "markdown" } },
-	{ command = "rustfmt", filetypes = { "rust" }, args = { "--edition=2021" } },
+	-- { command = "rustfmt", filetypes = { "rust" }, args = { "--edition=2021" } },
 	{ command = "google_java_format", filetypes = { "java" } },
 	{
 		command = "clang-format",
@@ -31,9 +31,15 @@ formatters.setup({
 	{ command = "black", filetypes = { "python" } },
 	{ command = "stylua", filetypes = { "lua" } },
 	{ command = "shfmt", filetypes = { "sh" } },
-	{ command = "typstfmt", filetypes = { "typst" } },
+	-- { command = "typstfmt", filetypes = { "typst" } },
+	{ name = "typstyle", filetypes = { "typst" } },
 })
 
--- linters setup
-local linters = require("lvim.lsp.null-ls.linters")
-linters.setup({ { command = "flake8", filetypes = { "python" } } })
+local nls = require("null-ls")
+nls.setup({
+	sources = {
+		nls.builtins.completion.spell.with({
+			filetypes = { "markdown", "typst" },
+		}),
+	},
+})
