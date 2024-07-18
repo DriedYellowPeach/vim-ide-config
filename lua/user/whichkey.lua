@@ -1,8 +1,7 @@
 lvim.builtin.which_key.setup.ignore_missing = false
+
 lvim.builtin.which_key.mappings.s.u = { "<cmd>Telescope resume<Cr>", "Telescope Resume" }
--- lvim.builtin.which_key.mappings.w.name = "window"
--- lvim.builtin.which_key.mappings.w.h = {"<cmd>split<Cr>", "window hori split"}
--- lvim.builtin.which_key.mappings.w.v = {"<cmd>vsplit<Cr>", "window vertical split"}
+
 lvim.builtin.which_key.mappings.v = {
 	name = "window",
 	h = { "<cmd>split<Cr>", "window horizontal split" },
@@ -20,4 +19,11 @@ lvim.builtin.which_key.setup.plugins.presets = {
 	nav = true, -- misc bindings to work with windows
 	z = true, -- bindings for folds, spelling and others prefixed with z
 	g = true, -- bindings for prefixed with g
+}
+
+lvim.builtin.which_key.mappings.l.t = {
+	function()
+		require("user.utils.toggle").inlay_hints()
+	end,
+	"Toggle Inlay Hints",
 }
