@@ -174,4 +174,12 @@ lvim.plugins = {
 	{
 		"jbyuki/one-small-step-for-vimkind",
 	},
+	-- emoji source for nvim-cmp
+	{
+		"hrsh7th/cmp-emoji",
+	},
+	-- calc source for nvim-cmp
+	{
+		"hrsh7th/cmp-calc",
+	},
 }

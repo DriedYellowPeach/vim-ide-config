@@ -21,6 +21,12 @@ require("tokyonight").setup({
 		hl.Quote = {
 			fg = colors.teal,
 		}
+		hl.CmpItemKindSnippet = {
+			fg = colors.green,
+		}
+		hl.CmpGhostText = {
+			fg = colors.comment,
+		}
 	end,
 
 	styles = {
