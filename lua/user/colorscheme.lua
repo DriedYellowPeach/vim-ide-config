@@ -27,6 +27,17 @@ require("tokyonight").setup({
 		hl.CmpGhostText = {
 			fg = colors.comment,
 		}
+		hl.StatusLineLspInactive = {
+			fg = "#e0af68",
+			bg = "#1f2335",
+		}
+		hl.StatusLineLspActive = {
+			fg = "#0db9d7",
+			bg = "#1f2335",
+		}
+		-- hl.Visual = {
+		-- 	reverse = true,
+		-- }
 	end,
 
 	styles = {
@@ -40,4 +51,4 @@ require("tokyonight").setup({
 	end,
 })
 
-lvim.colorscheme = "tokyonight-storm"
+lvim.colorscheme = "tokyonight-moon"

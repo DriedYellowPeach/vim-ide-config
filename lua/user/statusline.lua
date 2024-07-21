@@ -2,12 +2,20 @@
 lvim.builtin.lualine.options.minumu_width = 40
 
 local components = require("lvim.core.lualine.components")
+local colors = require("lvim.core.lualine.colors")
 
 local compo_lsp = {
 	function()
-		local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
+		local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
 		if #buf_clients == 0 then
-			return "%#DiagnosticWarn#" .. " " .. ":[" .. "%*" .. "LSP Inactive" .. "%#DiagnosticWarn#" .. "]" .. "%*"
+			return "%#StatusLineLspInactive#"
+				.. " "
+				.. ":["
+				.. "%*"
+				.. "LSP Inactive"
+				.. "%#StatusLineLspInactive#"
+				.. "]"
+				.. "%*"
 		end
 
 		local buf_ft = vim.bo.filetype
@@ -32,22 +40,21 @@ local compo_lsp = {
 
 		local unique_client_names = vim.fn.uniq(buf_client_names)
 
-		local language_servers = "%#DiagnosticInfo#"
+		local language_servers = "%#StatusLineLspActive#"
 			.. " "
 			.. ":["
 			.. "%*"
-			.. table.concat(unique_client_names, "%#DiagnosticInfo#" .. "|" .. "%*")
-			.. "%#DiagnosticInfo#"
+			.. table.concat(unique_client_names, "%#StatusLineLspActive#" .. "|" .. "%*")
+			.. "%#StatusLineLspActive#"
 			.. "]"
 			.. "%*"
 
 		return language_servers
 	end,
-	color = { gui = "bold" },
 	cond = nil,
 }
 
-local compo_copilot = {
+local comp_copilot = {
 	"copilot",
 	symbols = {
 		status = {
@@ -71,11 +78,21 @@ local compo_copilot = {
 	show_loading = true,
 }
 
+local comp_spaces = {
+	function()
+		local shiftwidth = vim.api.nvim_get_option_value("shiftwidth", { buf = 0 })
+		return lvim.icons.ui.Tab .. " " .. shiftwidth
+	end,
+	color = {
+		fg = colors.yellow,
+	},
+}
+
 lvim.builtin.lualine.sections.lualine_x = {
 	-- components.lsp,
-	compo_copilot,
+	comp_copilot,
 	components.treesitter,
-	components.spaces,
+	comp_spaces,
 	components.filetype,
 	compo_lsp,
 }
