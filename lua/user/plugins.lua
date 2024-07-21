@@ -29,7 +29,7 @@ lvim.plugins = {
 	-- plugin for showing process of language server
 	{
 		"j-hui/fidget.nvim",
-		tag = "v1.4.0",
+		tag = "v1.4.5",
 		config = function()
 			require("fidget").setup({
 				progress = {
@@ -45,6 +45,8 @@ lvim.plugins = {
 						-- normal_hl = "Normal",
 						border = "rounded",
 						winblend = 20,
+						max_width = 50,
+						max_height = 25,
 					},
 				},
 
