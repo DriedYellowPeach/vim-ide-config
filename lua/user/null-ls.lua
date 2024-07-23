@@ -35,6 +35,11 @@ formatters.setup({
 	{ name = "typstyle", filetypes = { "typst" } },
 })
 
+-- local linters = require("lvim.lsp.null-ls.linters")
+-- linters.setup({
+-- 	{ name = "shellcheck", filetypes = { "sh" } },
+-- })
+
 local nls = require("null-ls")
 nls.setup({
 	sources = {
