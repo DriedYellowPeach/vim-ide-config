@@ -2,6 +2,9 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "lua_ls" })
 
 local defaults = require("lvim.lsp").get_common_opts()
 local old_setting = require("lvim.lsp.providers.lua_ls").settings
+old_setting.Lua.runtime = {
+	version = "Lua 5.4",
+}
 old_setting.Lua.hint = {
 	enable = true,
 	setType = true,
