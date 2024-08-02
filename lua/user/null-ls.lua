@@ -18,12 +18,10 @@ lvim.format_on_save.pattern = {
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
 	{ command = "prettier", filetypes = { "html", "css", "markdown" } },
-	-- { command = "rustfmt", filetypes = { "rust" }, args = { "--edition=2021" } },
 	{ command = "google_java_format", filetypes = { "java" } },
 	{
 		command = "clang-format",
 		filetypes = { "c", "cpp" },
-		-- args = { "-style=file" },
 		extra_args = { "--style={IndentWidth: 4}" },
 	},
 	{ command = "goimports", filetypes = { "go" } },
@@ -34,11 +32,6 @@ formatters.setup({
 	-- { command = "typstfmt", filetypes = { "typst" } },
 	{ name = "typstyle", filetypes = { "typst" } },
 })
-
--- local linters = require("lvim.lsp.null-ls.linters")
--- linters.setup({
--- 	{ name = "shellcheck", filetypes = { "sh" } },
--- })
 
 local nls = require("null-ls")
 nls.setup({

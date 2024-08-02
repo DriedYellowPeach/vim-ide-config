@@ -3,6 +3,26 @@ require("tokyonight").setup({
 		hl.CursorLineNr = {
 			fg = "#d0ff14",
 		}
+
+		hl.LineNr0 = {
+			fg = "#d0ff14",
+		}
+		hl.LineNr1 = {
+			fg = "#afd71b",
+			-- fg = "#a5cc1d",
+		}
+		hl.LineNr2 = {
+			-- fg = "#9ec31e",
+			fg = "#91b421",
+		}
+		hl.LineNr3 = {
+			-- fg = "#80a024",
+			fg = "#799726",
+		}
+		hl.LineNr4 = {
+			fg = "#3b4261",
+		}
+
 		hl.NvimTreeWinSeparator = {
 			fg = colors.red1,
 		}
@@ -36,6 +56,9 @@ require("tokyonight").setup({
 			fg = "#0db9d7",
 			bg = colors.bg_dark,
 		}
+		-- hl.GitSignsAdd = {
+		-- 	fg = colors.green,
+		-- }
 		-- hl.Visual = {
 		-- 	reverse = true,
 		-- }
@@ -52,3 +75,4 @@ require("tokyonight").setup({
 })
 
 lvim.colorscheme = "tokyonight-moon"
+-- lvim.colorscheme = "rose-pine-moon"

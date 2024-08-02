@@ -11,9 +11,9 @@ lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping.confirm({
 	behavior = cmp.ConfirmBehavior.Replace,
 })
 lvim.builtin.cmp.cmdline.enable = true
-lvim.builtin.cmp.experimental.ghost_text = {
-	hl_group = "CmpGhostText",
-}
+-- lvim.builtin.cmp.experimental.ghost_text = {
+-- 	hl_group = "CmpGhostText",
+-- }
 lvim.builtin.cmp.formatting.fields = { "abbr", "kind", "menu" }
 lvim.builtin.cmp.formatting.format = function(entry, vim_item)
 	local max_width = lvim.builtin.cmp.formatting.max_width

@@ -2,7 +2,7 @@ lvim.plugins = {
 	-- plugin for rust lsp
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^4", -- Recommended
+		version = "^5", -- Recommended
 		lazy = false, -- This plugin is already lazy
 	},
 	-- -- 2.Inlay hints for rust
@@ -183,5 +183,10 @@ lvim.plugins = {
 	-- calc source for nvim-cmp
 	{
 		"hrsh7th/cmp-calc",
+	},
+	-- rose pine color scheme
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
 	},
 }

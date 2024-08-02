@@ -27,7 +27,7 @@ require("mason-tool-installer").setup({
 		"jdtls",
 		-- go
 		"gopls",
-		"json-lsp",
+		-- "json-lsp",
 		-- lua
 		"stylua",
 		"lua-language-server",

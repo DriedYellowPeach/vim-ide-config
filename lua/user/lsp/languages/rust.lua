@@ -28,14 +28,15 @@ vim.g.rustaceanvim = {
 		float_win_config = {
 			border = "rounded",
 		},
-		on_initialized = function()
-			vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
-				pattern = { "*.rs" },
-				callback = function()
-					local _, _ = pcall(vim.lsp.codelens.refresh)
-				end,
-			})
-		end,
+		-- disable it because there is a change in neovim 0.10, refersh codelens will try to refresh all buffers
+		-- on_initialized = function()
+		-- 	vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+		-- 		pattern = { "*.rs" },
+		-- 		callback = function()
+		-- 			local _, _ = pcall(vim.lsp.codelens.refresh)
+		-- 		end,
+		-- 	})
+		-- end,
 		-- 		},
 	},
 
