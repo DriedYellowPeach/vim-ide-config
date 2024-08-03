@@ -1,38 +1,45 @@
+local gradient_color = {
+	"#d0ff14",
+	"#b8e02b",
+	"#a5c73e",
+	"#93b04f",
+	"#7e9562",
+	"#6a7a76",
+	"#565f89",
+}
 require("tokyonight").setup({
 	on_highlights = function(hl, colors)
 		hl.CursorLineNr = {
-			fg = "#d0ff14",
+			fg = gradient_color[1],
 		}
 
 		hl.LineNr0 = {
-			fg = "#d0ff14",
+			fg = gradient_color[1],
 		}
 		hl.LineNr1 = {
-			fg = "#afd71b",
-			-- fg = "#a5cc1d",
+			fg = gradient_color[2],
 		}
 		hl.LineNr2 = {
-			-- fg = "#9ec31e",
-			fg = "#91b421",
+			fg = gradient_color[3],
 		}
 		hl.LineNr3 = {
-			-- fg = "#80a024",
-			fg = "#799726",
+			fg = gradient_color[4],
 		}
 		hl.LineNr4 = {
-			fg = "#3b4261",
+			fg = gradient_color[5],
+		}
+		hl.LineNr5 = {
+			fg = gradient_color[6],
+		}
+		hl.LineNr6 = {
+			fg = gradient_color[7],
 		}
 
 		hl.NvimTreeWinSeparator = {
-			fg = colors.red1,
+			fg = colors.fg_gutter,
 		}
-		-- hl.LspCodeLens = {
-		-- 	fg = colors.green,
-		-- 	bg = colors.bg_dark,
-		-- }
 		hl.LspCodeLensSeparator = {
 			fg = colors.green1,
-			-- bg = colors.bg_dark,
 		}
 		hl.LspInlayHint = {
 			-- fg = "#6f7f9f",
@@ -56,12 +63,6 @@ require("tokyonight").setup({
 			fg = "#0db9d7",
 			bg = colors.bg_dark,
 		}
-		-- hl.GitSignsAdd = {
-		-- 	fg = colors.green,
-		-- }
-		-- hl.Visual = {
-		-- 	reverse = true,
-		-- }
 	end,
 
 	styles = {
@@ -70,9 +71,8 @@ require("tokyonight").setup({
 	},
 
 	on_colors = function(colors)
-		colors.border = colors.yellow
+		colors.border = colors.fg_gutter
 	end,
 })
 
-lvim.colorscheme = "tokyonight-moon"
--- lvim.colorscheme = "rose-pine-moon"
+lvim.colorscheme = "tokyonight"

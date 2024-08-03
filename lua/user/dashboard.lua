@@ -155,5 +155,5 @@ alpha_bts.entries = {
 		lvim.icons.ui.Gear .. "  Configuration",
 		"<CMD>edit " .. require("lvim.config"):get_user_config_path() .. " <CR>",
 	},
-	{ "q", lvim.icons.ui.Close .. "  Quit", "<CMD>quit<CR>" },
+	{ "q", "󰩈" .. "  Quit", "<CMD>quit<CR>" },
 }
