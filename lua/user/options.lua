@@ -15,7 +15,6 @@ vim.opt.virtualedit = "block"
 -- }
 
 local column_sep = "┋"
-vim.opt.statuscolumn = vim.v.relnum .. column_sep
 vim.opt.statuscolumn = '%s%=%#LineNr6#%{(v:relnum >= 6)?v:relnum." '
 	.. column_sep
 	.. ' ":""}'
