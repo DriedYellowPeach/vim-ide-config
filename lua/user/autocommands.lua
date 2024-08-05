@@ -2,7 +2,6 @@ lvim.autocommands = {
 	{
 		"TextYankPost",
 		{
-			-- group = "custom_buffer",
 			pattern = "*",
 			desc = "Highlight text on yank",
 			callback = function()
@@ -15,13 +14,13 @@ lvim.autocommands = {
 		{
 			pattern = "zsh",
 			desc = "Enter insert mode when open a shell",
-			command = "startinsert | set winfixheight",
+			command = "startinsert | set winfixheight | setlocal statuscolumn= | setlocal nonumber norelativenumber",
 		},
 	},
 	{
 		"Filetype",
 		{
-			pattern = { "alpha" },
+			pattern = { "alpha", "dap-repl" },
 			desc = "disable status column for certain type of buffers",
 			callback = function()
 				vim.opt_local.statuscolumn = ""
@@ -35,7 +34,7 @@ lvim.autocommands = {
 				if vim.bo.filetype == "NvimTree" then
 					vim.opt_local.statuscolumn = ""
 				end
-				if vim.bo.buftype == "terminal" then
+				if vim.bo.filetype:find("dapui") then
 					vim.opt_local.statuscolumn = ""
 				end
 				if vim.bo.buftype == "help" then

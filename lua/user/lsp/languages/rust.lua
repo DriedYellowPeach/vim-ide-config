@@ -18,7 +18,7 @@ end
 
 -- set up rustaceanvim
 local cfg = require("rustaceanvim.config")
-local executors = require("rustaceanvim.executors")
+-- local executors = require("rustaceanvim.executors")
 
 vim.g.rustaceanvim = {
 	-- plugin configuration
@@ -29,15 +29,14 @@ vim.g.rustaceanvim = {
 			border = "rounded",
 		},
 		-- disable it because there is a change in neovim 0.10, refersh codelens will try to refresh all buffers
-		-- on_initialized = function()
-		-- 	vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
-		-- 		pattern = { "*.rs" },
-		-- 		callback = function()
-		-- 			local _, _ = pcall(vim.lsp.codelens.refresh)
-		-- 		end,
-		-- 	})
-		-- end,
-		-- 		},
+		on_initialized = function()
+			vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+				pattern = { "*.rs" },
+				callback = function()
+					local _, _ = pcall(vim.lsp.codelens.refresh, { bufnr = 0 })
+				end,
+			})
+		end,
 	},
 
 	server = {
@@ -65,9 +64,9 @@ vim.g.rustaceanvim = {
 			},
 		},
 	},
-	-- dap = {
-	-- 	adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
-	-- },
+	dap = {
+		adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
+	},
 }
 
 -- builtin dap setup
