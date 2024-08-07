@@ -46,7 +46,7 @@ require("tokyonight").setup({
 			fg = colors.comment,
 			bg = colors.bg,
 		}
-		hl.Quote = {
+		hl.RenderMarkdownQuote = {
 			fg = colors.teal,
 		}
 		hl.CmpItemKindSnippet = {

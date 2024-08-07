@@ -166,12 +166,6 @@ lvim.plugins = {
 			require("typst-preview").update()
 		end,
 	},
-	-- makrdown headline hilight plugin
-	{
-		"lukas-reineke/headlines.nvim",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		config = true,
-	},
 	-- lua debug adapter
 	{
 		"jbyuki/one-small-step-for-vimkind",
@@ -188,5 +182,11 @@ lvim.plugins = {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
+	},
+	-- new markdown rendering plugin
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		opts = {},
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 	},
 }
