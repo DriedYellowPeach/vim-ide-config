@@ -122,13 +122,12 @@ alpha_hdr.opts.hl = "HeaderTxt"
 
 -- setup alpha footer
 local text = require("lvim.interface.text")
--- local lvim_version = require("lvim.utils.git").get_lvim_version()
 alpha_ftr.val = text.align_center({ width = 0 }, {
 	"",
 	"",
-	"",
 	"🙈🙉🙊",
-	"When the people fear the goverment, there is tyranny.",
+	"When government fears the people, there is liberty.",
+	"When the people fear the government, there is tyranny.",
 	"",
 	-- lvim_version,
 }, 0.5)

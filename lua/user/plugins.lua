@@ -3,7 +3,8 @@ lvim.plugins = {
 	{
 		"mrcjkb/rustaceanvim",
 		version = "^5", -- Recommended
-		lazy = false, -- This plugin is already lazy
+		lazy = true, -- This plugin is already lazy
+		ft = "rust",
 	},
 	-- -- 2.Inlay hints for rust
 	-- {
@@ -132,13 +133,15 @@ lvim.plugins = {
 				venvs_path = vim.fn.expand("~/Library/Caches/pypoetry/virtualenvs"),
 			})
 		end,
-		event = { "BufRead", "BufNew" },
+		lazy = true,
+		ft = "python",
 	},
 	"stevearc/dressing.nvim",
 	"mfussenegger/nvim-dap-python",
 	{
 		"nvim-neotest/neotest",
 		event = { "BufReadPost", "BufNew" },
+		lazy = true,
 	},
 	{
 		"nvim-neotest/neotest-python",
@@ -160,7 +163,8 @@ lvim.plugins = {
 	-- preview typst
 	{
 		"chomosuke/typst-preview.nvim",
-		lazy = false, -- or ft = 'typst'
+		-- lazy = false, -- or ft = 'typst'
+		ft = "typst",
 		version = "0.3.*",
 		build = function()
 			require("typst-preview").update()
@@ -169,6 +173,8 @@ lvim.plugins = {
 	-- lua debug adapter
 	{
 		"jbyuki/one-small-step-for-vimkind",
+		lazy = true,
+		ft = "lua",
 	},
 	-- emoji source for nvim-cmp
 	{
@@ -186,6 +192,7 @@ lvim.plugins = {
 	-- new markdown rendering plugin
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
+		ft = "markdown",
 		opts = {},
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 	},

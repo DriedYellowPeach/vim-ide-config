@@ -4,6 +4,7 @@ vim.opt.cursorcolumn = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.virtualedit = "block"
+
 -- vim.opt.fillchars = {
 -- 	horiz = "═",
 -- 	vert = "║",
