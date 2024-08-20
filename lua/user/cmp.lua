@@ -1,19 +1,22 @@
-local status_cmp_ok, cmp = pcall(require, "cmp")
-if not status_cmp_ok then
-	return
-end
+-- local status_cmp_ok, cmp = pcall(require, "cmp")
+-- if not status_cmp_ok then
+-- 	return
+-- end
 
 lvim.builtin.cmp.mapping["<Tab>"] = nil
 lvim.builtin.cmp.mapping["<S-Tab>"] = nil
 -- set mapping CR for cmp
-lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping.confirm({
-	select = false,
-	behavior = cmp.ConfirmBehavior.Replace,
-})
+-- lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping.confirm({
+-- 	select = false,
+-- 	behavior = cmp.ConfirmBehavior.Replace,
+-- })
 lvim.builtin.cmp.cmdline.enable = true
+-- allow duplicate entries on lsp completion, because there may be method or variables of the same name
+lvim.builtin.cmp.formatting.duplicates.nvim_lsp = 1
 -- lvim.builtin.cmp.experimental.ghost_text = {
 -- 	hl_group = "CmpGhostText",
 -- }
+
 lvim.builtin.cmp.formatting.fields = { "abbr", "kind", "menu" }
 lvim.builtin.cmp.formatting.format = function(entry, vim_item)
 	local max_width = lvim.builtin.cmp.formatting.max_width
