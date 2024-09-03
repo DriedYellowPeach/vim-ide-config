@@ -23,121 +23,34 @@ local colors = {
 
 local random_color = colors[math.random(1, #colors)]
 
+-- setup alpha header
 vim.cmd(string.format("autocmd ColorScheme * highlight HeaderTxt cterm=bold gui=bold guifg=%s", random_color))
-
-local header_simple3d = {
-	[[                                                           ]],
-	[[                                                           ]],
-	[[                                                           ]],
-	[[                        ___                                ]],
-	[[  ___       __    __   /\_ \     __  __  __     ___ ___    ]],
-	[[/' _ `\   / ,.`\ /\_\  \//\ \   /\ \/\ \/\_\  /' __` __`\  ]],
-	[[/\ \/\ \ /\  __/ \/\ \   \_\ \_ \ \ \/ |\/\ \ /\ \/\ \/\ \ ]],
-	[[\ \_\ \_\\ \____\ \ \ \  /\____\ \ \___/ \ \ \\ \_\ \_\ \_\]],
-	[[ \/_/\/_/ \/____/  \/_/  \/____/  \/__/   \/_/ \/_/\/_/\/_/]],
-	[[                                                           ]],
-	[[                                                           ]],
-}
-
-local header_slick = {
-	[[                                           ]],
-	[[                                           ]],
-	[[                                           ]],
-	[[                                           ]],
-	[[╱╭━╮╱╭╮╱╭━━━╮╱╭━━╮╱╭╮╱╱╱╱╭╮╱╱╭╮╱╭━━╮╱╭━╮╭━╮]],
-	[[╱┃┃╰╮┃┃╱┃╭━━╯╱╰┫┣╯╱┃┃╱╱╱╱┃╰╮╭╯┃╱╰┫┣╯╱┃┃╰╯┃┃]],
-	[[╱┃╭╮╰╯┃╱┃╰━━╮╱╱┃┃╱╱┃┃╱╱╱╱╰╮┃┃╭╯╱╱┃┃╱╱┃╭╮╭╮┃]],
-	[[╱┃┃╰╮┃┃╱┃╭━━╯╱╱┃┃╱╱┃┃╱╭╮╱╱┃╰╯┃╱╱╱┃┃╱╱┃┃┃┃┃┃]],
-	[[╱┃┃╱┃┃┃╱┃╰━━╮╱╭┫┣╮╱┃╰━╯┃╱╱╰╮╭╯╱╱╭┫┣╮╱┃┃┃┃┃┃]],
-	[[╱╰╯╱╰━╯╱╰━━━╯╱╰━━╯╱╰━━━╯╱╱╱╰╯╱╱╱╰━━╯╱╰╯╰╯╰╯]],
-	[[                                           ]],
-	[[                                           ]],
-}
-
-local header_chrome = {
-	[[                        ]],
-	[[                        ]],
-	[[                        ]],
-	[[                        ]],
-	[[╔╗╔ ╔═╗ ╦ ╦   ╦  ╦ ╦ ╔╦╗]],
-	[[║║║ ║╣  ║ ║   ╚╗╔╝ ║ ║║║]],
-	[[╝╚╝ ╚═╝ ╩ ╩═╝  ╚╝  ╩ ╩ ╩]],
-	[[                        ]],
-	[[                        ]],
-}
-
-local header_simpleblock = {
-	[[                                                                      ]],
-	[[                                                                      ]],
-	[[                                                                      ]],
-	[[                                                                      ]],
-	[[_|      _|  _|_|_|_|  _|_|_|  _|        _|      _|  _|_|_|  _|      _|]],
-	[[_|_|    _|  _|          _|    _|        _|      _|    _|    _|_|  _|_|]],
-	[[_|  _|  _|  _|_|_|      _|    _|        _|      _|    _|    _|  _|  _|]],
-	[[_|    _|_|  _|          _|    _|          _|  _|      _|    _|      _|]],
-	[[_|      _|  _|_|_|_|  _|_|_|  _|_|_|_|      _|      _|_|_|  _|      _|]],
-	[[                                                                      ]],
-	[[                                                                      ]],
-}
-
-local header_block = {
-	[[                                                          ]],
-	[[                                                          ]],
-	[[                                                          ]],
-	[[                                                          ]],
-	[[███╗   ██╗ ███████╗ ██╗ ██╗      ██╗   ██╗ ██╗ ███╗   ███╗]],
-	[[████╗  ██║ ██╔════╝ ██║ ██║      ██║   ██║ ██║ ████╗ ████║]],
-	[[██╔██╗ ██║ █████╗   ██║ ██║      ██║   ██║ ██║ ██╔████╔██║]],
-	[[██║╚██╗██║ ██╔══╝   ██║ ██║      ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║]],
-	[[██║ ╚████║ ███████╗ ██║ ███████╗  ╚████╔╝  ██║ ██║ ╚═╝ ██║]],
-	[[╚═╝  ╚═══╝ ╚══════╝ ╚═╝ ╚══════╝   ╚═══╝   ╚═╝ ╚═╝     ╚═╝]],
-	[[                                                          ]],
-	[[                                                          ]],
-}
-
-local header_simple = {
-	[[                                                ]],
-	[[                                                ]],
-	[[                                                ]],
-	[[                                                ]],
-	[[ _  _   ___   ___   _     _    _   ___   _    _ ]],
-	[[| \| | | __| |_ _| | |    \ \ / / |_ _| | \  / |]],
-	[[| .` | | _|   | |  | |__   \ V /   | |  | |\/| |]],
-	[[|_|\_| |___| |___| |____|   \_/   |___| |_|  |_|]],
-	[[                                                ]],
-	[[                                                ]],
-}
-
-local header_texts = {
-	header_simple,
-	header_slick,
-	header_simple3d,
-	header_chrome,
-	header_simpleblock,
-	header_block,
-}
-
-alpha_hdr.val = header_texts[math.random(1, #header_texts)]
+local headers = require("user.utils.artwork").headers()
+alpha_hdr.val = require("user.utils.artwork").headers()[math.random(1, #headers)]
 alpha_hdr.opts.hl = "HeaderTxt"
 
 -- setup alpha footer
-local text = require("lvim.interface.text")
-alpha_ftr.val = text.align_center({ width = 0 }, {
-	"",
-	"",
-	"🙈🙉🙊",
-	"When government fears the people, there is liberty.",
-	"When the people fear the government, there is tyranny.",
-	"",
-	-- lvim_version,
-}, 0.5)
+local function footer_text()
+	local stats = require("lazy").stats()
+	local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+	local lazy_info = "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms ⚡"
 
-vim.cmd(
-	string.format(
-		"autocmd ColorScheme * highlight FooterTxt cterm=bold cterm = italic gui=bold,italic guifg=%s",
-		random_color
-	)
-)
+	local art_text = require("user.utils.artwork").ascii_art()
+	art_text[#art_text + 1] = lazy_info
+
+	return art_text
+end
+
+vim.api.nvim_create_autocmd("User", {
+	once = true,
+	pattern = "LazyVimStarted",
+	callback = function()
+		require("alpha.themes.dashboard").section.footer.val = footer_text()
+		pcall(vim.cmd.AlphaRedraw)
+	end,
+})
+
+vim.cmd(string.format("autocmd ColorScheme * highlight FooterTxt cterm=bold gui=bold guifg=%s", random_color))
 alpha_ftr.opts.hl = "FooterTxt"
 
 -- setup alpha buttons
@@ -146,7 +59,8 @@ alpha_bts.opts.hl = "HeaderTxt"
 alpha_bts.opts.hl_shortcut = "ButtonTxt"
 alpha_bts.entries = {
 	{ "f", lvim.icons.ui.FindFile .. "  Find File", "<CMD>Telescope find_files<CR>" },
-	{ "n", lvim.icons.ui.NewFile .. "  New File", "<CMD>ene!<CR>" },
+	-- too narrow space for now, disable this entry
+	-- { "n", lvim.icons.ui.NewFile .. "  New File", "<CMD>ene!<CR>" },
 	{ "p", lvim.icons.ui.Project .. "  Projects ", "<CMD>Telescope projects<CR>" },
 	{ "r", lvim.icons.ui.History .. "  Recent files", ":Telescope oldfiles <CR>" },
 	{
