@@ -1,12 +1,11 @@
+local M = {}
+
 vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.foldcolumn = "0"
-
-vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "unfold all" })
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "fold all" })
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
 	local newVirtText = {}
@@ -36,9 +35,16 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 	return newVirtText
 end
 
-require("ufo").setup({
-	provider_selector = function(bufnr, filetype, buftype)
-		return { "treesitter", "indent" }
-	end,
-	fold_virt_text_handler = handler,
-})
+function M.setup()
+	local ufo = require("ufo")
+	vim.keymap.set("n", "zR", ufo.openAllFolds, { desc = "unfold all" })
+	vim.keymap.set("n", "zM", ufo.closeAllFolds, { desc = "fold all" })
+	ufo.setup({
+		provider_selector = function(bufnr, filetype, buftype)
+			return { "treesitter", "indent" }
+		end,
+		fold_virt_text_handler = handler,
+	})
+end
+
+return M
