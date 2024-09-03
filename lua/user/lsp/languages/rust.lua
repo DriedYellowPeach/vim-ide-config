@@ -1,3 +1,5 @@
+local M = {}
+
 -- rust-tools setup
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 
@@ -109,3 +111,5 @@ dap.configurations.rust = {
 		runInTerminal = false,
 	},
 }
+
+return M
