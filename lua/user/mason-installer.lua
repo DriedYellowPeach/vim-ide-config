@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
 	require("mason-tool-installer").setup({
-		ensure_intalled = {
+		ensure_installed = {
 			-- shell
 			"bash-language-server",
 			"shellcheck",
@@ -22,6 +22,8 @@ function M.setup()
 			"html-lsp",
 			"tailwindcss-language-server",
 			"typescript-language-server",
+			"vtsls",
+			"js-debug-adapter",
 			-- java
 			"google-java-format",
 			"groovy-language-server",
@@ -42,9 +44,6 @@ function M.setup()
 			"vim-language-server",
 			"perlnavigator",
 			"prettier",
-			-- js/ts
-			"vtsls",
-			"js-debug-adapter",
 		},
 	})
 end

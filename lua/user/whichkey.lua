@@ -27,3 +27,23 @@ lvim.builtin.which_key.mappings.l.t = {
 	end,
 	"Toggle Inlay Hints",
 }
+-- ---@param config {args?:string[]|fun():string[]?}
+-- local function get_args(config)
+-- 	local args = type(config.args) == "function" and (config.args() or {}) or config.args or {}
+-- 	config = vim.deepcopy(config)
+-- 	---@cast args string[]
+-- 	config.args = function()
+-- 		local new_args = vim.fn.input("Run with args: ", table.concat(args, " ")) --[[@as string]]
+-- 		return vim.split(vim.fn.expand(new_args) --[[@as string]], " ")
+-- 	end
+-- 	return config
+-- end
+
+-- lvim.builtin.which_key.mappings.d.s = {
+-- 	{
+-- 		function()
+-- 			require("dap").continue({ before = get_args })
+-- 		end,
+-- 		"Start",
+-- 	},
+-- }
