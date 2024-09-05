@@ -16,6 +16,11 @@ function M.setup()
 		arrayIndex = "Enable",
 	}
 
+	vim.list_extend(original_setting.Lua.workspace.library, {
+		-- 	"/Users/neil/.local/share/lunarvim/site/pack/lazy/opt",
+		os.getenv("LUNARVIM_RUNTIME_DIR") .. "/site/pack",
+	})
+
 	local lsp_manager = require("lvim.lsp.manager")
 	lsp_manager.setup("lua_ls", {
 		on_attach = function(client, bufnr)
