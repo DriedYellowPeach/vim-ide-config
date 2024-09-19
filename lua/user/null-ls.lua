@@ -12,6 +12,9 @@ lvim.format_on_save.pattern = {
 	"*.cpp",
 	"*.sh",
 	"*.typ",
+	"*.css",
+	"*.js",
+	"*.ts",
 }
 
 -- formatters setup

@@ -38,5 +38,4 @@ vim.opt.statuscolumn = '%s%=%#LineNr6#%{(v:relnum >= 6)?v:relnum." '
 	.. column_sep
 	.. ' ":""}'
 
-lvim.builtin.indentlines.options.show_current_context = true
 lvim.keys.term_mode["<esc>"] = "<C-\\><C-n>"

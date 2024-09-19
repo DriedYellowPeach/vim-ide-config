@@ -17,8 +17,8 @@ function M.setup()
 	}
 
 	vim.list_extend(original_setting.Lua.workspace.library, {
-		-- 	"/Users/neil/.local/share/lunarvim/site/pack/lazy/opt",
-		os.getenv("LUNARVIM_RUNTIME_DIR") .. "/site/pack",
+		-- It's too much when I need it, I open it
+		-- os.getenv("LUNARVIM_RUNTIME_DIR") .. "/site/pack",
 	})
 
 	local lsp_manager = require("lvim.lsp.manager")

@@ -17,7 +17,7 @@ local opts = {
 
 local mappings = {
 	m = {
-		name = "Magic 󱡃",
+		name = "Markdown Magic 󱡃",
 		t = {
 			function()
 				require("user.utils.toggle").check_box()

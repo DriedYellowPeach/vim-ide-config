@@ -138,15 +138,6 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
-local vopts = {
-	mode = "v", -- VISUAL mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-
 local mappings = {
 	m = {
 		name = "Java 󱡃",
@@ -156,18 +147,9 @@ local mappings = {
 		t = { "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", "Test Method" },
 		T = { "<Cmd>lua require'jdtls'.test_class()<CR>", "Test Class" },
 		u = { "<Cmd>JdtUpdateConfig<CR>", "Update Config" },
-	},
-}
-
-local vmappings = {
-	m = {
-		name = "Java 󱡃",
-		v = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable" },
-		c = { "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant" },
-		m = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method" },
+		d = { "<Cmd>JdtUpdateDebugConfig<CR>", "Update Debug Config" },
+		w = { "<Cmd>JdtWipeDataAndRestart<CR>", "Wipe Jdtls workspace" },
 	},
 }
 
 which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
-which_key.register(vmappings, vopts)
