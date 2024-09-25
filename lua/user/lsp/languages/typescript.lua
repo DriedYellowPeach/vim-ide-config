@@ -16,6 +16,7 @@ function M.setup()
 	lsp_manager.setup("tsserver", {
 		enabled = false,
 	})
+
 	-- setup vtsls
 	lsp_manager.setup("vtsls", {
 		default_config = require("vtsls").lspconfig,
