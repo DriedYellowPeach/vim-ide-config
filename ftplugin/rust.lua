@@ -12,10 +12,9 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
--- m means magic
 local mappings = {
 	m = {
-		name = "Rust 󱡃",
+		name = "Magic 󱡃",
 		-- only setkeymaps for runnables and debuggables
 		-- cause there are already code lens for run/debug the line under cursor
 		r = { "<cmd>RustLsp runnables<Cr>", "Runnables" },
