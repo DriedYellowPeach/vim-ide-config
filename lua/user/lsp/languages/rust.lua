@@ -26,7 +26,7 @@ vim.g.rustaceanvim = {
 	-- plugin configuration
 	tools = {
 		-- executor = executors.termopen,
-		reload_workspace_from_cargo_toml = true,
+		-- reload_workspace_from_cargo_toml = true,
 		float_win_config = {
 			border = "rounded",
 		},
@@ -59,9 +59,24 @@ vim.g.rustaceanvim = {
 						enable = true,
 					},
 				},
+				cargo = {
+					allFeatures = true,
+					loadOutDirsFromCheck = true,
+					buildScripts = {
+						enable = true,
+					},
+				},
 				checkOnSave = {
 					enable = true,
 					command = "clippy",
+				},
+				procMacro = {
+					enable = true,
+					ignored = {
+						["async-trait"] = { "async_trait" },
+						["napi-derive"] = { "napi" },
+						["async-recursion"] = { "async_recursion" },
+					},
 				},
 			},
 		},
