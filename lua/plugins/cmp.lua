@@ -93,6 +93,7 @@ return {
           compare.order,
         },
       }
+      opts.experimental = {}
     end,
   },
 }
