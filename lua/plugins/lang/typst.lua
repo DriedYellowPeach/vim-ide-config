@@ -29,11 +29,13 @@ return {
     opts = {
       servers = {
         tinymist = {
+          -- FIX: https://github.com/igorlfs/dotfiles/commit/51199d1a33a5fa28f198a6dcd6858aad8e5e106c#diff-4294c316cad3cabb99eaf4879fa9556e579283822b1c4dab0f92f18d2ce32f0eR2
+          offset_encoding = "utf-8",
           single_file_support = true,
           root_dir = function()
             return vim.fn.getcwd()
           end,
-          --- See [Tinymist Server Configuration](https://github.com/Myriad-Dreamin/tinymist/blob/main/Configuration.md) for references.
+          -- NOTE: See [Tinymist Server Configuration](https://github.com/Myriad-Dreamin/tinymist/blob/main/Configuration.md) for references.
           settings = {
             exportPdf = "onType",
             outputPath = "$root/target/$dir/$name",
