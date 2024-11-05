@@ -2,8 +2,27 @@ vim.filetype.add({ extension = { typ = "typst" } })
 
 return {
   {
+    "stevearc/conform.nvim",
+    opts = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          typst = { "typstyle" },
+        },
+        formatters = {
+          typstyle = {
+            -- Change where to find the command
+            command = "/opt/homebrew/bin/typstyle",
+            args = {},
+            stdin = true,
+          },
+        },
+      })
+    end,
+  },
+
+  {
     "chomosuke/typst-preview.nvim",
-    lazy = false, -- or ft = 'typst'
+    ft = "typst",
     version = "1.*",
     build = function()
       require("typst-preview").update()
