@@ -6,3 +6,7 @@ vim.diagnostic.config({
   signs = true,
   float = { border = "rounded" },
 })
+
+-- NOTE: Trying to disable automatically adding comment symbol when enter new line
+-- `vim.opt.formatoptions:remove("c")` doesn't work for me
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
