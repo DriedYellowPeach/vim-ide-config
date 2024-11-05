@@ -28,16 +28,17 @@ return {
           bg = colors.bg,
         },
 
+        --> NOTE: These background should keep the same
         buffer_visible = {
           fg = colors.bg,
           bg = colors.fg_gutter,
         },
 
-        --> NOTE: These background should keep the same
         background = {
           fg = colors.bg,
           bg = colors.fg_gutter,
         },
+
         separator_visible = {
           fg = colors.bg,
           bg = colors.fg_gutter,
@@ -46,6 +47,7 @@ return {
           fg = colors.bg,
           bg = colors.fg_gutter,
         },
+
         modified = {
           fg = colors.yellow,
           bg = colors.fg_gutter,
@@ -54,9 +56,21 @@ return {
           fg = "#905f18",
           bg = colors.fg_gutter,
         },
+
         tab = {
           fg = colors.bg,
           bg = "#2a4287",
+        },
+
+        duplicate = {
+          fg = colors.bg,
+          bg = colors.fg_gutter,
+          italic = false,
+        },
+        duplicate_visible = {
+          fg = colors.bg,
+          bg = colors.fg_gutter,
+          italic = false,
         },
         --<
 
@@ -67,10 +81,8 @@ return {
           bold = true,
           italic = false,
         },
-        -- TODO: the fg is what?
         separator_selected = {
           fg = colors.bg,
-          -- fg = "#ff0000",
           bg = colors.fg,
         },
         tab_selected = {
@@ -80,6 +92,11 @@ return {
         modified_selected = {
           fg = "#c08f48",
           bg = colors.fg,
+        },
+        duplicate_selected = {
+          fg = colors.bg_dark,
+          bg = colors.fg,
+          italic = false,
         },
         --<
       }
