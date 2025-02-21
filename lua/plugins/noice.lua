@@ -21,7 +21,7 @@ return {
       },
       lsp = {
         signature = {
-          enabled = true,
+          enabled = false,
         },
       },
     },

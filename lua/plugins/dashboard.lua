@@ -92,6 +92,7 @@ end
 return {
   {
     "nvimdev/dashboard-nvim",
+    lazy = false,
     -- NOTE: This is a totally override to the orginal settings
     opts = setup_dashboard(),
   },

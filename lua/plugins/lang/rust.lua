@@ -33,7 +33,9 @@ return {
           -- FIX: Debug current line, this is all I can do now
           -- Really can not figure out why the debug codelens disappears
           -- And I am gonna now sleep well over this!
-          vim.keymap.set("n", "<leader>dd", function() end, { desc = "Rust Deug line", buffer = bufnr })
+          vim.keymap.set("n", "<leader>dd", function()
+            vim.cmd.RustLsp("debug")
+          end, { desc = "Rust Deug line", buffer = bufnr })
           vim.keymap.set("n", "<leader>dr", function()
             vim.cmd.RustLsp("debuggables")
           end, { desc = "Rust Debuggables", buffer = bufnr })

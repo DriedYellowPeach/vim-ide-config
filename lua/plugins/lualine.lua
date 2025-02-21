@@ -74,9 +74,9 @@ local components = function()
     cond = function()
       return package.loaded["dap"] and require("dap").status() ~= ""
     end,
-    color = function()
-      return LazyVim.ui.fg("Debug")
-    end,
+    -- color = function()
+    --   return LazyVim.ui.fg("Debug")
+    -- end,
   }
 
   local component_spaces = {

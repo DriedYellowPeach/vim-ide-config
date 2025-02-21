@@ -10,3 +10,5 @@ vim.diagnostic.config({
 -- NOTE: Trying to disable automatically adding comment symbol when enter new line
 -- `vim.opt.formatoptions:remove("c")` doesn't work for me
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+vim.g.lazyvim_picker = "telescope"
+vim.g.lazyvim_python_lsp = "basedpyright"
