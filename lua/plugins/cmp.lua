@@ -1,26 +1,33 @@
 return {
   "saghen/blink.cmp",
-  opts = function(_, opts)
-    opts.keymap = {
-      preset = "default",
-      ["<C-j>"] = { "select_next" },
-      ["<C-k>"] = { "select_prev" },
-    }
-    opts.completion.documentation.window = {
-      border = "rounded",
-    }
-    opts.completion.menu = {
-      border = "rounded",
-    }
-    opts.signature = {
+  dependencies = {
+    "MahanRahmati/blink-nerdfont.nvim",
+  },
+  opts = {
+    keymap = {
+      preset = "enter",
+      ["<c-j>"] = { "select_next" },
+      ["<c-k>"] = { "select_prev" },
+    },
+    completion = {
+      documentation = {
+        window = {
+          border = "rounded",
+        },
+      },
+      menu = {
+        border = "rounded",
+      },
+      ghost_text = {
+        enabled = false,
+      },
+    },
+    signature = {
       enabled = true,
       window = {
         border = "rounded",
         scrollbar = true,
       },
-    }
-    opts.completion.ghost_text = {
-      enabled = false,
-    }
-  end,
+    },
+  },
 }

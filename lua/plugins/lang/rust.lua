@@ -26,7 +26,7 @@ return {
       },
       server = {
         on_attach = function(_, bufnr)
-          -- expandMacro
+          -- NOTE: key map for expandMacro
           vim.keymap.set("n", "<leader>ce", function()
             vim.cmd.RustLsp("expandMacro")
           end, { desc = "Expand Macro", buffer = bufnr })
@@ -36,12 +36,13 @@ return {
           vim.keymap.set("n", "<leader>dd", function()
             vim.cmd.RustLsp("debug")
           end, { desc = "Rust Deug line", buffer = bufnr })
+          -- NOTE: key map for all debuggables
           vim.keymap.set("n", "<leader>dr", function()
             vim.cmd.RustLsp("debuggables")
           end, { desc = "Rust Debuggables", buffer = bufnr })
         end,
         default_settings = {
-          -- rust-analyzer language server configuration
+          -- NOTE: rust-analyzer language server configuration
           ["rust-analyzer"] = {
             lens = {
               enable = true,

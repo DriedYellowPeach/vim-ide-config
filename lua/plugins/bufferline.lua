@@ -28,7 +28,7 @@ return {
           bg = colors.bg,
         },
 
-        --> NOTE: These background should keep the same
+        -- NOTE: These background should keep the same
         buffer_visible = {
           fg = colors.bg,
           bg = colors.fg_gutter,
@@ -72,9 +72,8 @@ return {
           bg = colors.fg_gutter,
           italic = false,
         },
-        --<
 
-        --> NOTE: These background should keep the same
+        -- NOTE: These background should keep the same
         buffer_selected = {
           fg = colors.bg_dark,
           bg = colors.fg,
@@ -98,7 +97,6 @@ return {
           bg = colors.fg,
           italic = false,
         },
-        --<
       }
     end,
   },
