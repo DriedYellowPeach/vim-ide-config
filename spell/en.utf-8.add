@@ -62,3 +62,6 @@ Youki
 DHCP/!
 DHCP
 gsoc
+WASM
+WebGL2
+WebAssembly
