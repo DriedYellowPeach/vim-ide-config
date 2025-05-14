@@ -1,3 +1,17 @@
+local function get_project_rustanalyzer_settings()
+  local handle = io.open(vim.fn.resolve(vim.fn.getcwd() .. "/./.rust-analyzer.json"))
+  if not handle then
+    return {}
+  end
+  local out = handle:read("*a")
+  handle:close()
+  local config = vim.json.decode(out)
+  if type(config) == "table" then
+    return config
+  end
+  return {}
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -43,37 +57,43 @@ return {
         end,
         default_settings = {
           -- NOTE: rust-analyzer language server configuration
-          ["rust-analyzer"] = {
-            lens = {
-              enable = true,
-              run = {
+          ["rust-analyzer"] = vim.tbl_deep_extend(
+            "force",
+            -- NOTE: Default settings
+            {
+              lens = {
                 enable = true,
+                run = {
+                  enable = true,
+                },
+                debug = {
+                  enable = true,
+                },
               },
-              debug = {
+              cargo = {
+                allFeatures = true,
+                loadOutDirsFromCheck = true,
+                buildScripts = {
+                  enable = true,
+                },
+              },
+              -- Add clippy lints for Rust.
+              checkOnSave = {
                 enable = true,
+                command = "clippy",
               },
-            },
-            cargo = {
-              allFeatures = true,
-              loadOutDirsFromCheck = true,
-              buildScripts = {
+              procMacro = {
                 enable = true,
+                ignored = {
+                  ["async-trait"] = { "async_trait" },
+                  ["napi-derive"] = { "napi" },
+                  ["async-recursion"] = { "async_recursion" },
+                },
               },
             },
-            -- Add clippy lints for Rust.
-            checkOnSave = {
-              enable = true,
-              command = "clippy",
-            },
-            procMacro = {
-              enable = true,
-              ignored = {
-                ["async-trait"] = { "async_trait" },
-                ["napi-derive"] = { "napi" },
-                ["async-recursion"] = { "async_recursion" },
-              },
-            },
-          },
+            -- NOTE: load .rust-analyzer.json if exists
+            get_project_rustanalyzer_settings()
+          ),
         },
       },
     },
