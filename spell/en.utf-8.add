@@ -65,3 +65,6 @@ gsoc
 WASM
 WebGL2
 WebAssembly
+WGSL
+WebGPU
+rasterized
