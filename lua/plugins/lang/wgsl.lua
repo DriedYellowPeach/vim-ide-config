@@ -1,3 +1,10 @@
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "wgsl",
+  callback = function()
+    vim.bo.shiftwidth = 4
+  end,
+})
+
 -- WARN: Still don't know if the shader language server will work like normal
 -- But it seems that the community is not dead entirely, so this is it for now.
 return {
