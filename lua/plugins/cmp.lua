@@ -4,6 +4,11 @@ return {
     "MahanRahmati/blink-nerdfont.nvim",
   },
   opts = {
+    enabled = function()
+      return not vim.list_contains({ "DressingInput" }, vim.bo.filetype)
+        and vim.bo.buftype ~= "prompt"
+        and vim.b.completion ~= false
+    end,
     keymap = {
       preset = "enter",
       ["<c-j>"] = { "select_next" },

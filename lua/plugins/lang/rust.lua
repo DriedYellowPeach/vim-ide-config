@@ -85,10 +85,15 @@ return {
               procMacro = {
                 enable = true,
                 ignored = {
-                  ["async-trait"] = { "async_trait" },
-                  ["napi-derive"] = { "napi" },
-                  ["async-recursion"] = { "async_recursion" },
+                  -- ["async-trait"] = { "async_trait" },
+                  -- ["napi-derive"] = { "napi" },
+                  -- ["async-recursion"] = { "async_recursion" },
                 },
+              },
+              diagnostics = {
+                enable = true,
+                disabled = { "unresolved-proc-macro", "proc-macro-disabled" },
+                enableExperimental = true,
               },
             },
             -- NOTE: load .rust-analyzer.json if exists
