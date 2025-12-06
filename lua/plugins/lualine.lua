@@ -41,32 +41,6 @@ local components = function()
     end,
   }
 
-  -- NOTE: This makes the copilot have sort of animation
-  -- Seeing the loading spinner kinda of comforts me
-  local component_copilot = {
-    "copilot",
-    symbols = {
-      status = {
-        icons = {
-          enabled = "",
-          disabled = "",
-          warning = "",
-          unknown = "",
-        },
-        hl = {
-          enabled = "#6cc644",
-          disabled = "#6272A4",
-          warning = "#ffc777",
-          unknown = "#c53b53",
-        },
-      },
-      spinners = require("copilot-lualine.spinners").dots_negative,
-      spinner_color = "#6272A4",
-    },
-    show_colors = true,
-    show_loading = true,
-  }
-
   local component_dap = {
     function()
       return "  " .. require("dap").status()
@@ -91,11 +65,8 @@ local components = function()
 
   return {
     dap = component_dap,
-    copilot = component_copilot,
     lsp = component_lsp,
     shiftwidth = component_spaces,
-    -- TODO: should I add treesitter?
-    -- component_treesitter = {},
   }
 end
 
@@ -110,9 +81,8 @@ return {
       -- NOTE: in this order!
       opts.sections.lualine_x = {
         comps.dap,
-        comps.shiftwidth,
-        comps.copilot,
         comps.lsp,
+        comps.shiftwidth,
       }
       opts.sections.lualine_z = {}
     end,
