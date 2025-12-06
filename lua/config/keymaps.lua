@@ -32,11 +32,10 @@ map("n", "<leader>gG", function()
 end, { desc = "Lazygit (cwd)" })
 
 -- NOTE: Providing additional keymaps to navigate through diagnostics
-map("n", "<leader>cn", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
-map("n", "<leader>cp", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
+map("n", "<leader>cn", function()
+  vim.diagnostic.jump({ count = 1 })
+end, { desc = "Next Diagnostic" })
 
--- NOTE: Disable original keymap: <c-k> - Signature Help(insert mode)
---  Cause this may confilict with my cmp keymaps
---  I like to navigate up and down the completion list with <c-j> and <c-k>
-local keys = require("lazyvim.plugins.lsp.keymaps").get()
-keys[#keys + 1] = { "<c-k>", false, mode = "i" }
+map("n", "<leader>cp", function()
+  vim.diagnostic.jump({ count = -1 })
+end, { desc = "Prev Diagnostic" })
